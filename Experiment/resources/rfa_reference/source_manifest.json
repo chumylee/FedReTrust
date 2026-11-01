@@ -1,0 +1,16 @@
+{
+  "commit": "40945d27a5246b2c82fd37bd453db4f5bc049952",
+  "files": {
+    "LICENSE.md": {
+      "sha256": "1a80b0a9a4c6f77fff0e773c2660d909a11fb713e2913bbc883da40f4263d45d",
+      "url": "https://raw.githubusercontent.com/krishnap25/RFA/40945d27a5246b2c82fd37bd453db4f5bc049952/LICENSE.md"
+    },
+    "model.py": {
+      "sha256": "48d6f1e2aefa6215aa5e4a1423f0f886d90985785d752d0413332a660baf6240",
+      "url": "https://raw.githubusercontent.com/krishnap25/RFA/40945d27a5246b2c82fd37bd453db4f5bc049952/models/model.py"
+    }
+  },
+  "repository": "https://github.com/krishnap25/RFA",
+  "retrieved_at_utc": "2026-10-10T20:51:36.678148+00:00",
+  "use": "Read-only numeric reference. Tests extract four pure NumPy aggregation methods; no TensorFlow training or downloaded module imports."
+}

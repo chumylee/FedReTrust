@@ -1,0 +1,54 @@
+{
+  "component_findings": [
+    "IID: full v0.3 minus the no-restoration control changes persistent label-flip damage by -0.56 pp (nominal 95% interval -0.84 to -0.27). Lower damage favours restoration.",
+    "IID: full v0.3 minus the no-clipping control changes persistent label-flip damage by -0.45 pp (nominal 95% interval -0.71 to -0.18). Lower damage favours clipping.",
+    "IID: the memory-free directional rule minus capped RFA changes honest-stripe accuracy by +12.51 pp (nominal 95% interval +10.57 to +14.44) and persistent label-flip damage by +0.77 pp (nominal 95% interval +0.51 to +1.03). Higher accuracy and lower damage are desirable; the two outcomes expose a trade-off.",
+    "non-IID: full v0.3 minus the no-restoration control changes persistent label-flip damage by -4.57 pp (nominal 95% interval -8.11 to -1.04). Lower damage favours restoration.",
+    "non-IID: full v0.3 minus the no-clipping control changes persistent label-flip damage by -0.01 pp (nominal 95% interval -0.05 to +0.03). Lower damage favours clipping.",
+    "non-IID: the memory-free directional rule minus capped RFA changes honest-stripe accuracy by +2.63 pp (nominal 95% interval -0.32 to +5.58) and persistent label-flip damage by +8.38 pp (nominal 95% interval +4.79 to +11.98). Higher accuracy and lower damage are desirable; the two outcomes expose a trade-off."
+  ],
+  "conclusion": "Practical point targets: 8/10. Joint target not met.",
+  "evidence_sha256": {
+    "analysis/paired_effects.csv": "dbe10132e53e97ec656f5fbcf6a019be82f06185a895cad33babef1570ff08ad",
+    "analysis/practical_criteria.csv": "35053962fe66c22c3205e36086844e002a80ae1a0b6729cccd0432066e886612",
+    "analysis/summary.json": "7f9e194ebdd1beb9dccb8ff10dbe9442ac2900b4b716073e52deb0ed2d547e94",
+    "analysis/zero_tolerance_targets.csv": "5f103430e628cb9d83b7103c5c4cc7a355f084e998c16eda472c263d09eaecce",
+    "analysis_manifest.json": "12cc7a2b2f6c3eb0cae96aca0b942384a33d698611c0359847c3d0f5132651a3",
+    "execution_freeze.json": "e874742e11d2c517185ce32b41bf1298707624e753fcfbd5235faa477e57b275"
+  },
+  "joint_practical_point_target_met": false,
+  "missed_point_targets": [
+    {
+      "bound_pp": -1.0,
+      "ci_high": 0.3256561610965092,
+      "ci_low": -3.21849414992331,
+      "comparator": "FedAvg",
+      "interval_assessment": "Uncertain: interval touches/crosses margin",
+      "mean": -1.4464189944134005,
+      "metric": "affected_honest_event_pp",
+      "regime": "non-IID",
+      "scenario": "abrupt_shot_noise"
+    },
+    {
+      "bound_pp": 1.0,
+      "ci_high": 4.830423970273516,
+      "ci_low": 2.8097618770263004,
+      "comparator": "RFA",
+      "interval_assessment": "Interval entirely misses margin",
+      "mean": 3.820092923649909,
+      "metric": "attack_active_signed_damage_pp",
+      "regime": "non-IID",
+      "scenario": "label_flip"
+    }
+  ],
+  "point_passes_by_regime": {
+    "IID": 5,
+    "non-IID": 3
+  },
+  "practical_checks": 10,
+  "practical_point_passes": 8,
+  "scope": "Five paired blocks per regime on known MNIST. No simultaneous significance, unseen-dataset or established novelty claim.",
+  "uncertain_practical_intervals": 2,
+  "zero_tolerance_checks": 6,
+  "zero_tolerance_point_passes": 0
+}

@@ -1,0 +1,28 @@
+{
+  "scalar_metrics": {
+    "overall_mean_5_24_pp": "Mean legitimate-task accuracy (%) across rounds 5–24, all clients weighted by their population class counts and current legitimate task.",
+    "overall_tail_21_24_pp": "Mean of the same legitimate-task accuracy over rounds 21–24.",
+    "overall_round24_pp": "Legitimate-task accuracy after the final aggregation at round 24. No extra clean rounds are appended.",
+    "unchanged_honest_mean_5_24_pp": "Rounds 5–24 accuracy on the legitimate tasks of clients whose inputs and labels did not change.",
+    "affected_honest_event_pp": "Affected honest clients’ legitimate-task accuracy during their input-change window: 5–24, except 5–10 for honest_change_stops.",
+    "affected_honest_return_11_24_pp": "Affected honest clients’ legitimate-task accuracy after their input change stops, rounds 11–24.",
+    "attack_active_signed_damage_pp": "Mean matched-control legitimate-task accuracy minus attacked accuracy over attack-active rounds. Negative values are retained. Mixed attacks use mixed_drift_only_control; others use own-method clean.",
+    "attack_active_positive_area_pp_rounds": "Sum of positive matched-control-minus-attack accuracy deficits over attack-active rounds (pp-rounds). This is not a mean accuracy or signed damage.",
+    "attack_tail_damage_21_24_pp": "Mean matched-control-minus-attack legitimate-task accuracy over rounds 21–24 (pp).",
+    "attack_active_accuracy_pp": "Absolute legitimate-task accuracy (%) over attack-active rounds. For persistent label_flip this equals overall_mean_5_24_pp.",
+    "matched_reference_attack_window_accuracy_pp": "Matched-control accuracy (%) over the same attack-active rounds and observed scenario’s legitimate task weights.",
+    "second_attack_signed_damage_pp": "Mean signed matched-control damage in the recurring attack’s second window, rounds 15–18 (pp).",
+    "overall_round5_pp": "Absolute all-client legitimate-task accuracy (%) after round 5 under persistent label flipping.",
+    "attack_onset_signed_damage_pp": "Own-method clean round-5 accuracy minus attacked round-5 accuracy (pp).",
+    "onset_raw_drop_pp": "Attacked-run round-4 accuracy minus round-5 accuracy (pp). Negative means accuracy rose. This is not own-clean-relative damage."
+  },
+  "accuracy_formula": "Per-class held-out correct/count, then the frozen client-population/class/task weighting. Fixed balanced task accuracy in evaluation_tasks tables is correct/1000 and is a different denominator.",
+  "training_loss": "Mean online local SGD batch cross-entropy. Each client has 512 examples in eight equal batches. Local labels may be poisoned. Training accuracy was not recorded.",
+  "evaluation_loss": "Held-out cross-entropy on each fixed development task. Evaluation data is not a defence input.",
+  "statistics": "Five block values; sample SD ddof=1; mean ± 2.7764451051977987 × SD / sqrt(5). Paired intervals apply this formula to block differences. No rounds/clients treated as independent replicates. No multiplicity correction; known-development evidence.",
+  "recovery": "After attack cessation, observed accuracy must be at least matched control minus 1 percentage point for three consecutive eligible post-attack rounds. Confirmation is the third round. Stop eligibility before the next attack or at round 24. Censored rows have no observed confirmation, not a zero recovery time.",
+  "recovery_caveat": "A trajectory may already be within the tolerance at attack end; report this separately. First restoration does not imply permanent recovery. v0.6 and v0.5 were not tested in recovery scenarios.",
+  "contribution_diagnostics": "Applied update norms/coefficients are descriptive, not proof of malicious intent or causal utility. v0.6 is affine in current deltas plus historical vectors; current coefficients alone cannot reconstruct it.",
+  "missingness": "not_tested/NA means no measurement. A measured zero remains numeric zero.",
+  "units": "Accuracy columns ending _pp retain historical identifiers but are percentages. Accuracy differences/damage are percentage points. Area is percentage-point-rounds. Times are seconds, memory MiB."
+}

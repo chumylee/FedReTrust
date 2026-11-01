@@ -1,0 +1,52 @@
+FINAL PROJECT RESEARCH DECISION — 31 October2026 (Perth)
+
+Selected primary method: FedReTrust v0.6.
+Keep v0.5 as the important earlier-version comparison, particularly for IID.
+The implementation remains version0.6-exploratory; selection does not imply production readiness.
+
+Reason for selection
+The project seeks a useful protection/adaptation compromise without clean server reference data.
+v0.6 improves non-IID poisoning protection over v0.5 in every paired block and retains better
+honest-stripe accuracy than RFA. This is a qualitative project choice, not a universal ranking.
+
+Five-block evidence (v0.5 -> v0.6)
+Non-IID label-flip damage:7.3835 ->5.6152 percentage points.
+Paired reduction:1.7684 points; nominal95% interval[0.6225,2.9142].
+Non-IID absolute attacked accuracy:77.3488% ->79.1980%.
+Non-IID honest-stripe accuracy:80.3113% ->80.8128%; the gain is uncertain across blocks.
+IID honest-stripe accuracy:82.0407% ->80.9232%.
+Paired loss:1.1176 points; nominal95% interval[0.0148,2.2203].
+IID clean/noise metrics are unchanged; the IID attack-damage difference is small and uncertain.
+
+RFA remains stronger on average non-IID protection:4.6578 points damage and81.2872% attacked
+accuracy. v0.6 has higher non-IID stripe accuracy:80.8128% versus77.4730% for RFA.
+All intervals are exploratory paired t intervals across five known development blocks.
+
+Unmet targets
+45/51 follow-up checks passed. The six failures are IID mean stripe accuracy relative to FedAvg,
+non-IID mean noise accuracy relative to FedAvg, and IID stripe retention in blocks1,2,4,5.
+All earlier pilot decisions remain unchanged. No all-target success is claimed.
+
+Frozen scope
+v0.6 covers clean training, honest noise, honest stripes and persistent label flipping,
+with IID/non-IID, five existing blocks and24 rounds. It does not establish recovery after
+attack cessation, recurring/mixed/adaptive attack robustness, partial participation or new datasets.
+No proof of malicious intent, universal superiority, established novelty, differential privacy,
+secure aggregation or production readiness is claimed.
+
+Research is frozen for reporting
+Preserve the existing algorithms, parameters, seeds, partitions, protocols, raw results and failures.
+No further variants, tuning or performance experiments are scheduled.
+Any future scientific amendment requires a separately documented, explicitly authorized change.
+Code cleanup should use a separate submission copy and demonstrate preserved behaviour.
+Reproduction checks and demos must remain separately labelled and must not overwrite study results.
+New tables, figures, prose and presentation material may be derived from the saved artifacts.
+
+Authoritative files
+selection.json contains the detailed decision, paired results, failed gates and claim boundaries.
+evidence_manifest.json indexes880 distinct authoritative runs and their artifact hashes.
+research_freeze.json and freeze_digest.json pin73 scientific sources and the supporting evidence.
+Run verify_freeze.py with Python to check integrity without training.
+
+Next agreed step:3 — prepare the definitive results package in this chat.
+Recommended model: GPT-6 Astra with Extra High reasoning.

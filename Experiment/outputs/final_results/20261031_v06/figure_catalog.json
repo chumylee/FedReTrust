@@ -1,0 +1,55 @@
+[
+  {
+    "name": "core_IID",
+    "title": "IID core results",
+    "caption": "Accuracy is percent; damage is percentage points. Honest noise/stripe accuracy uses affected clients’ legitimate tasks. All plotted cells have five blocks. FLAURA/FedCognis noise cells were not tested. Intervals are exploratory, not simultaneous.",
+    "sources": [
+      "tables/core_results.csv",
+      "tables/means_all_metrics.csv"
+    ],
+    "png": "figures/core_IID.png",
+    "pdf": "figures/core_IID.pdf"
+  },
+  {
+    "name": "core_non_IID",
+    "title": "non-IID core results",
+    "caption": "Accuracy is percent; damage is percentage points. Honest noise/stripe accuracy uses affected clients’ legitimate tasks. All plotted cells have five blocks. FLAURA/FedCognis noise cells were not tested. Intervals are exploratory, not simultaneous.",
+    "sources": [
+      "tables/core_results.csv",
+      "tables/means_all_metrics.csv"
+    ],
+    "png": "figures/core_non_IID.png",
+    "pdf": "figures/core_non_IID.pdf"
+  },
+  {
+    "name": "core_trajectories",
+    "title": "Core learning trajectories",
+    "caption": "Four clean warm-up rounds precede interventions at round 5. Curves show all clients for clean/attack and affected honest clients for noise/stripes. Shading is pointwise across five blocks, not a simultaneous confidence band. Five blocks are repeated runs, not additional rounds.",
+    "sources": [
+      "tables/accuracy_curves.csv"
+    ],
+    "png": "figures/core_trajectories.png",
+    "pdf": "figures/core_trajectories.pdf"
+  },
+  {
+    "name": "paired_v06",
+    "title": "v0.6 paired comparisons",
+    "caption": "Differences use the same five block/seed pairs. Accuracy benefits are positive; damage benefits are negative. Intervals are exploratory, assume approximately normal independent block differences and have no table-wide coverage.",
+    "sources": [
+      "tables/paired_effects.csv"
+    ],
+    "png": "figures/paired_v06.png",
+    "pdf": "figures/paired_v06.pdf"
+  },
+  {
+    "name": "label_flip_blocks",
+    "title": "Every label-flip trajectory",
+    "caption": "All five known development blocks are shown separately. Attack starts at round 5 and continues through round 24. No block is omitted and there is no inference from a single final round.",
+    "sources": [
+      "tables/accuracy_curves.csv",
+      "tables/onset_by_block.csv"
+    ],
+    "png": "figures/label_flip_blocks.png",
+    "pdf": "figures/label_flip_blocks.pdf"
+  }
+]

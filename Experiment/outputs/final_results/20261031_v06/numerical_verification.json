@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "before": {
+    "status": "verified",
+    "selected_method": "FedReTrust-v06",
+    "scientific_sources": 73,
+    "authoritative_runs": 880,
+    "raw_artifact_hashes": 11440,
+    "study_and_report_artifacts": 184,
+    "research_freeze_sha256": "e8072da6814011f5034d7f55e489c2bed71ccffa2639065287ed2cffcca06212"
+  },
+  "after": {
+    "status": "verified",
+    "selected_method": "FedReTrust-v06",
+    "scientific_sources": 73,
+    "authoritative_runs": 880,
+    "raw_artifact_hashes": 11440,
+    "study_and_report_artifacts": 184,
+    "research_freeze_sha256": "e8072da6814011f5034d7f55e489c2bed71ccffa2639065287ed2cffcca06212"
+  },
+  "matched_original_summary_rows": 1212,
+  "derived_overall_curve_checks": 2640,
+  "local_client_rounds": 211200,
+  "raw_task_rows_read": 66000,
+  "core_measured_cells": 102,
+  "core_explicit_not_tested_cells": 8,
+  "recovery_rows": 580,
+  "recovery_counts_match_blocks": true,
+  "v06_followup_targets_passed": 45,
+  "v06_followup_targets_total": 51,
+  "source_settings_and_access_checked_for_all_880_runs": true,
+  "no_training_or_checkpoint_evaluation_performed": true
+}

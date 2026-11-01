@@ -1,0 +1,12 @@
+{
+  "packages": {
+    "matplotlib": "3.11.1",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "torch": "2.13.0",
+    "torchvision": "0.28.0"
+  },
+  "python": "3.14.8"
+}

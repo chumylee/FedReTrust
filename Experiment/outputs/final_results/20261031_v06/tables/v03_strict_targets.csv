@@ -1,0 +1,7 @@
+regime,scenario,metric,candidate_mean,best_baseline,best_baseline_mean,point_target_met,scope
+IID,clean,overall_mean_5_24_pp,88.63600130353818,FedCognis-squared-distance,88.66770260707634,False,Descriptive best of newly compared baselines; no selection or superiority inference.
+IID,gradual_stripe,affected_honest_event_pp,82.04497082557418,FedAvg,82.21630904717567,False,Descriptive best of newly compared baselines; no selection or superiority inference.
+IID,label_flip,attack_active_signed_damage_pp,0.712306517690876,FLTrust,0.2086979515828676,False,Descriptive best of newly compared baselines; no selection or superiority inference.
+non-IID,clean,overall_mean_5_24_pp,84.5088383612663,RFA,85.94501694599629,False,Descriptive best of newly compared baselines; no selection or superiority inference.
+non-IID,gradual_stripe,affected_honest_event_pp,80.31963345747982,FedCognis-squared-distance,80.70438376784605,False,Descriptive best of newly compared baselines; no selection or superiority inference.
+non-IID,label_flip,attack_active_signed_damage_pp,8.477920484171323,FLTrust,3.061675605214152,False,Descriptive best of newly compared baselines; no selection or superiority inference.

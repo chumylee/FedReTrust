@@ -1,0 +1,194 @@
+{
+  "run_index": {
+    "path": "tables/run_index.csv",
+    "rows": 880,
+    "description": "One row per distinct frozen trajectory. Raw paths are relative to the project root."
+  },
+  "block_metrics": {
+    "path": "tables/block_metrics.csv",
+    "rows": 6490,
+    "description": "All scalar frozen metrics plus explicitly labelled equivalent label-flip onset/active-window arithmetic. One measurement per block."
+  },
+  "means_all_metrics": {
+    "path": "tables/means_all_metrics.csv",
+    "rows": 1298,
+    "description": "All measured method/regime/scenario/metric cells. Five block values, sample SD, range and nominal 95% t interval."
+  },
+  "paired_effects": {
+    "path": "tables/paired_effects.csv",
+    "rows": 636,
+    "description": "Candidate minus comparator in shared measured scenarios. Five matched block/seed differences. No pooling across regimes."
+  },
+  "accuracy_curves": {
+    "path": "tables/accuracy_curves.csv",
+    "rows": 51600,
+    "description": "Saved legitimate-task accuracy (%) by round, method, scenario, cohort and block."
+  },
+  "onset_by_block": {
+    "path": "tables/onset_by_block.csv",
+    "rows": 140,
+    "description": "Label-flip round-5 accuracy and own-clean damage, raw onset change and later fragility. All 14 methods."
+  },
+  "core_results": {
+    "path": "tables/core_results.csv",
+    "rows": 110,
+    "description": "Main 11-method table. Explicit not_tested cells with NA numbers. Means and five-block uncertainty."
+  },
+  "core_IID": {
+    "path": "tables/core_IID.csv",
+    "rows": 11,
+    "description": "Compact mean table; precision retained. Use core_results for SD, CI and each block."
+  },
+  "core_non_IID": {
+    "path": "tables/core_non_IID.csv",
+    "rows": 11,
+    "description": "Compact mean table; precision retained. Use core_results for SD, CI and each block."
+  },
+  "coverage": {
+    "path": "tables/coverage.csv",
+    "rows": 280,
+    "description": "Full method × regime × scenario coverage. Zero here means no runs, never zero performance."
+  },
+  "descriptive_best_baseline": {
+    "path": "tables/descriptive_best_baseline.csv",
+    "rows": 10,
+    "description": "Best mean among baselines actually measured for each cell. Post hoc description, not a significance claim or altered success criterion."
+  },
+  "training_loss_by_block": {
+    "path": "tables/training_loss_by_block.csv",
+    "rows": 10560,
+    "description": "Online local cross-entropy on the batches used during SGD. May use poisoned labels. No training-accuracy metric was recorded. Group names denote client IDs, not inferred intent."
+  },
+  "training_loss_summary": {
+    "path": "tables/training_loss_summary.csv",
+    "rows": 2112,
+    "description": "Five-block summaries of online training loss, separate from held-out legitimate-task accuracy."
+  },
+  "evaluation_tasks_by_block": {
+    "path": "tables/evaluation_tasks_by_block.csv",
+    "rows": 13200,
+    "description": "Fixed balanced development tasks, 1000 images/task. These unweighted task scores differ from population-weighted legitimate-task scores in the main comparison."
+  },
+  "evaluation_tasks_accuracy_percent_summary": {
+    "path": "tables/evaluation_tasks_accuracy_percent_summary.csv",
+    "rows": 2640,
+    "description": "Five-block fixed-task summaries. Do not substitute for affected-cohort or population-weighted main outcomes."
+  },
+  "evaluation_tasks_cross_entropy_summary": {
+    "path": "tables/evaluation_tasks_cross_entropy_summary.csv",
+    "rows": 2640,
+    "description": "Five-block fixed-task summaries. Do not substitute for affected-cohort or population-weighted main outcomes."
+  },
+  "per_class_evaluation_by_block": {
+    "path": "tables/per_class_evaluation_by_block.csv",
+    "rows": 26400,
+    "description": "Per-digit development task accuracy and cross-entropy over rounds 5–24. All 880 trajectories retained."
+  },
+  "run_settings": {
+    "path": "tables/run_settings.csv",
+    "rows": 880,
+    "description": "Exact saved per-run algorithm settings and pairing identifiers. JSON fields preserve algorithm-specific parameters."
+  },
+  "data_access_by_run": {
+    "path": "tables/data_access_by_run.csv",
+    "rows": 880,
+    "description": "Verified saved constructor/reference access for every run. Evaluator data and official test are not aggregation inputs."
+  },
+  "methods_and_access": {
+    "path": "tables/methods_and_access.csv",
+    "rows": 14,
+    "description": "Method names, reference-data requirements and reproduction scope."
+  },
+  "costs_by_run": {
+    "path": "tables/costs_by_run.csv",
+    "rows": 880,
+    "description": "All timing/resource measurements. Concurrent wall time and process RSS are descriptive; RSS includes interpreter, data and framework."
+  },
+  "costs_by_scenario": {
+    "path": "tables/costs_by_scenario.csv",
+    "rows": 1936,
+    "description": "Five-block costs kept per scenario to avoid unequal-coverage pooling."
+  },
+  "costs_common_three_scenarios": {
+    "path": "tables/costs_common_three_scenarios.csv",
+    "rows": 242,
+    "description": "Each block averages the same three scenarios: clean, stripes and label flip. No causal speed ranking across different study dates."
+  },
+  "v03_practical_targets": {
+    "path": "tables/v03_practical_targets.csv",
+    "rows": 10,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/presentation/practical_criteria_with_interpretation.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "v03_strict_targets": {
+    "path": "tables/v03_strict_targets.csv",
+    "rows": 6,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/analysis/zero_tolerance_targets.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "v03_component_contrasts": {
+    "path": "tables/v03_component_contrasts.csv",
+    "rows": 48,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/presentation/component_contrasts.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "recovery_all_blocks": {
+    "path": "tables/recovery_all_blocks.csv",
+    "rows": 580,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/analysis/recovery.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "recovery_counts": {
+    "path": "tables/recovery_counts.csv",
+    "rows": 116,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/presentation/recovery_counts.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "model_episodes": {
+    "path": "tables/model_episodes.csv",
+    "rows": 810,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/analysis/model_episodes.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "original_contribution_summary": {
+    "path": "tables/original_contribution_summary.csv",
+    "rows": 1410,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/presentation/influence_by_block_and_client_group.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "original_component_activation": {
+    "path": "tables/original_component_activation.csv",
+    "rows": 280,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/presentation/component_activation_by_block.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "original_fallbacks": {
+    "path": "tables/original_fallbacks.csv",
+    "rows": 280,
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/presentation/fallback_fraction_by_block.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "v05_followup_gates": {
+    "path": "tables/v05_followup_gates.csv",
+    "rows": 16,
+    "original": "Experiment/outputs/reference_free/20261031_v05_followup/analysis/gates.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "v06_followup_gates": {
+    "path": "tables/v06_followup_gates.csv",
+    "rows": 51,
+    "original": "Experiment/outputs/reference_free/20261031_v06_followup/analysis/gates.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "v06_history_activation": {
+    "path": "tables/v06_history_activation.csv",
+    "rows": 960,
+    "original": "Experiment/outputs/reference_free/20261031_v06_followup/analysis/history_activation.csv",
+    "description": "Unchanged frozen source table. Original/v0.3 tables do not establish v0.6 recovery or ablation outcomes."
+  },
+  "v06_failed_targets": {
+    "path": "tables/v06_failed_targets.csv",
+    "rows": 6,
+    "description": "All six failed unchanged follow-up checks. Engineering margins, not statistical hypothesis tests."
+  }
+}

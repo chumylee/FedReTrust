@@ -1,0 +1,48 @@
+{
+  "retrieved_at": "2026-10-30T06:40:55.390725+00:00",
+  "paper": "Abdulatif Alabdulatif (2025), FedCognis: An Adaptive Federated Learning Framework for Secure Anomaly Detection in Industrial IoT-Enabled Cognitive Cities",
+  "doi": "10.32604/cmc.2025.066898",
+  "sources": {
+    "article.html": {
+      "url": "https://www.techscience.com/cmc/v85n1/63554/html",
+      "sha256": "3706fdb147f23a5a3a7a9f78b01fbf15dd9a6c1d61380d12ef15e448258da2cd"
+    },
+    "algorithm1.png": {
+      "url": "https://cdn.techscience.cn/files/cmc/2025/TSP_CMC-85-1/TSP_CMC_66898/TSP_CMC_66898/Images/CMC_66898-fig-15.png",
+      "sha256": "6d143937deaf2a936de1b106a28538afec42817f10c9913214ad39802fddb641"
+    },
+    "table-3.png": {
+      "url": "https://cdn.techscience.cn/files/cmc/2025/TSP_CMC-85-1/TSP_CMC_66898/TSP_CMC_66898/Images/table-3.png",
+      "sha256": "ab6a28df5722ae343b090491998f90135f48105fd188d11f7631995c0134bc0f"
+    },
+    "table-6.png": {
+      "url": "https://cdn.techscience.cn/files/cmc/2025/TSP_CMC-85-1/TSP_CMC_66898/TSP_CMC_66898/Images/table-6.png",
+      "sha256": "2c376b52678e91bcc352a71cfeaad4b0c83f4c52abfc783e8f039318fe6d55d5"
+    }
+  },
+  "visual_review": [
+    "Algorithm 1",
+    "Table 3",
+    "Table 6"
+  ],
+  "author_code_search": {
+    "queries": [
+      "FedCognis github implementation code Abdulatif Alabdulatif trust aggregation",
+      "\"FedCognis\" \"github.com\"",
+      "\"FedCognis\" code repository"
+    ],
+    "result": "No public author implementation located in the article or targeted searches; similarly named FedCOG/FedCG repositories are different methods."
+  },
+  "specification_notes": {
+    "norm": "Displayed Eqs.2/20 use L2 norm, prose following Eq.20 calls it squared Euclidean. Main uses displayed norm; squared version is retained as an interpretation sensitivity.",
+    "anchor": "Algorithm1 local delta is local model minus starting broadcast; no additional stale global reference.",
+    "timing": "Algorithm1 updates trust before aggregating. Eq15 model averaging supplies normalized trust-times-sample-count weights. Algorithm1 final formula is malformed and omits adding the broadcast to the weighted delta.",
+    "threshold": "Prose mentions filtering and a figure uses update magnitude threshold .8, but Eq15/20 and Algorithm1 specify no reproducible hard trust cutoff. No new hard threshold is invented.",
+    "normalization": "Stored trust follows Eq20 EMA, then normalized only for aggregation; Eq5 simplex constraint is not imposed recursively on the EMA ledger.",
+    "parameters": "Table6 labels the trust penalty delta, while Eq20 uses beta; .5 is an explicit mapping choice, not a complete author default. Alpha and initial trust are not specified numerically; choose .5 and1. Report beta .1 and .7 sensitivities.",
+    "authentication": "Model-poisoning clients are participating identities. Their signatures could be valid; do not use simulator attacker labels as signature failure. QSA cryptography and its claimed overhead/benefits are outside this aggregation comparison.",
+    "recovery": "Use symmetric EMA from Eq20. The reported .024-per-round recovery is not a separate specified update rule and is not invented as one.",
+    "scope": "Reuse existing MNIST CNN/SGD workload. No SALSTM/time-series/QSA/communication-sparsification reproduction, external reference data or calibration.",
+    "prose_direction": "The sentence after Eq20 is unclear about whether drift avoids a penalty; the negative exponential itself monotonically penalizes distance. We implement the equation without an intent-dependent exception."
+  }
+}

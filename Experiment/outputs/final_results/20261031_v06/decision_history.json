@@ -1,0 +1,22 @@
+{
+  "original_v03": {
+    "original": "Experiment/outputs/validation_replication/20261030_v03_v1/presentation/decision.json",
+    "sha256": "8c8544be06051be29baa5eefd313c9f222dea9b9a91fd63efa0920f591d0af2e"
+  },
+  "v05_pilot": {
+    "original": "Experiment/outputs/reference_free/20261031_v05/analysis/decision.json",
+    "sha256": "79e6eb4db9fcb474ff198133fa7776d33f8bb4c9b51b4151b24905ae73f2baf5"
+  },
+  "v05_followup": {
+    "original": "Experiment/outputs/reference_free/20261031_v05_followup/analysis/decision.json",
+    "sha256": "49236de1a51f3b5f246490ca67dafaf7f0f6f01b6c741f5833c6202519102a4e"
+  },
+  "v06_pilot": {
+    "original": "Experiment/outputs/reference_free/20261031_v06/analysis/decision.json",
+    "sha256": "ccec6cd5bfe9ef818e61a5b0196b5c7fb4837585eeeafba32a715fbc65ae297e"
+  },
+  "v06_followup": {
+    "original": "Experiment/outputs/reference_free/20261031_v06_followup/analysis/decision.json",
+    "sha256": "d944249b5d365c8450aa166490f9abba79d50bb11fbe7ed3daeb59214eda68e8"
+  }
+}

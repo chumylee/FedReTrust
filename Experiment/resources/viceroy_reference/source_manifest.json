@@ -1,0 +1,64 @@
+{
+  "commit": "3f726ca60ee8a975140a5a6a575351bf0e603e47",
+  "files": {
+    "LICENSE.md": {
+      "sha256": "037a42ed6e0b2db34273ea646dae0b277205760eb8a2ef7525f23d0f6eb6d37a",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/LICENSE.md"
+    },
+    "README.md": {
+      "sha256": "72f7cd87460df07082e3ee206d0688e241c382bb1e18fedb8f42177ff1a31c77",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/README.md"
+    },
+    "fl/server/fedavg.py": {
+      "sha256": "a21fb8d8df9c7b52a41eae0ae99628d1ef03ee1a21909eda2e23577d3e2d6f5a",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/server/fedavg.py"
+    },
+    "fl/server/foolsgold.py": {
+      "sha256": "3166bf4bba469bab4d28f359f884e793227d67d6080a22f793ecda2e189f8209",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/server/foolsgold.py"
+    },
+    "fl/server/server.py": {
+      "sha256": "700d10bef6ea7bbcc53e5a48d82b407e154e0825f4d4325b13101433a7783d51",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/server/server.py"
+    },
+    "fl/server/viceroy.py": {
+      "sha256": "75a8bfa1ec3bcc8d31d3f705191b841f678f2c97a74506a9b72d724f9fcdea8f",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/server/viceroy.py"
+    },
+    "fl/utils/__init__.py": {
+      "sha256": "e8b8517debddc9adc7f349a52e3c4cdce4897a7046052660d474a570b9ac6bf7",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/utils/__init__.py"
+    },
+    "fl/utils/datasets.py": {
+      "sha256": "45680c8c68679d10b7f8d04e7d2fe051059bd23a52193a458766248ef158b823",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/utils/datasets.py"
+    },
+    "fl/utils/distributions.py": {
+      "sha256": "af6ebb25d2d0c18571af1a78c87c595d6811c860282d45d246bd518088dd2cc1",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/utils/distributions.py"
+    },
+    "fl/utils/functions.py": {
+      "sha256": "792d8d6a611ce9e99b6457b5170c1fd8b009be93c41bafcdae6f2b915c6caba7",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/utils/functions.py"
+    },
+    "fl/utils/losses.py": {
+      "sha256": "d403355281036690b5cfe5356b4d31718510aa253c21e099b5419275447f2dca",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/utils/losses.py"
+    },
+    "fl/utils/network.py": {
+      "sha256": "c7706306ac36dcce42cbe87458ed9f2452281b0d4feb770c757cb0cacfbfd77d",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/fl/utils/network.py"
+    },
+    "main.py": {
+      "sha256": "6b2bedad00abba2c670dd744ca235abe37a8e122b19598a95b0b3b6f8eb8b608",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/main.py"
+    },
+    "requirements.txt": {
+      "sha256": "00ee1666aa1bf5a41323d46584f45053684de931a5f58dad050fb15504f17dfd",
+      "url": "https://raw.githubusercontent.com/codymlewis/viceroy/3f726ca60ee8a975140a5a6a575351bf0e603e47/requirements.txt"
+    }
+  },
+  "repository": "https://github.com/codymlewis/viceroy",
+  "retrieved_at_utc": "2026-10-10T21:12:15.335089+00:00",
+  "use": "Read-only algorithm reference; downloaded training modules are not imported or executed."
+}

@@ -1,0 +1,7 @@
+pandas
+tqdm
+matplotlib
+numpy
+scikit-learn
+dm-haiku
+optax

@@ -1,0 +1,20 @@
+{
+  "advancement_point_criterion_met": false,
+  "automatic_continuation_authorized": false,
+  "block_selection_limit": "Registered blocks 1 and 2 only. Three observed original blocks, including block 5, are outside this screen; their prior outcomes already informed development.",
+  "complete_pilot_point_targets_met": false,
+  "created_at": "2026-10-31T00:05:53.382454+00:00",
+  "exact_first_round_updates": 640,
+  "exact_own_method_pre_event_trajectories": 48,
+  "failure_rule": "Complete coverage is required. No omitted failures, substituted seeds, or successful-block-only summaries.",
+  "focused_fix_checks_passed": 6,
+  "focused_fix_checks_total": 6,
+  "interpretation": "The focused pilot advancement checks failed. Preserve the candidate and all results; no automatic follow-up or parameter changes.",
+  "matched_input_pairs": 64,
+  "new_runs": 16,
+  "original_practical_targets_passed": 8,
+  "original_practical_targets_total": 10,
+  "reused_runs": 48,
+  "source_freeze_sha256": "6642a7c97d79d3b9b3fe79144a7537f741b29d8ceb907e1e56221afd5352483a",
+  "uncertainty": "Two paired blocks per regime. Both block values and ranges are reported; no inferential superiority, generalization or novelty claim."
+}

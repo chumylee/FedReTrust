@@ -1,0 +1,460 @@
+{
+  "coefficient_suppression": {
+    "consecutive_rounds": 3,
+    "false_suppression": "Legacy ratio is diagnostic only. Do not call it false suppression or an actual contribution loss.",
+    "maximum_ratio_strict": 0.5,
+    "meaning": "allocation deficit, not a probability of malice or a causal contribution to accuracy",
+    "ratio": "applied effective raw-delta coefficient / same-client matched-control coefficient, at same round",
+    "reference_zero_epsilon": 1e-12,
+    "status": "historical_coefficient_only_diagnostic; not_primary_contribution_reduction_metric",
+    "zero_reference": "undefined; breaks streak, exclude from defined client-round denominator, report counts"
+  },
+  "compute_and_statistics": {
+    "candidate_cap_per_method_draft": 12,
+    "cap_status": "step 1 draft only; feasible grid and revision rules unresolved until step 7",
+    "cost_measurement": "full experiments in isolated fresh processes, common instrumentation; lifetime peak RSS is not per-method allocated memory; recorder overhead separate",
+    "cost_table": "upper-bound arithmetic only; do not automatically launch full Cartesian grid",
+    "final_reporting": "paired per-seed differences within regime, scenario and fixed partition; mean and sample SD, uncertainty analysis in step 10",
+    "final_size_check": "512 selected images yield 8 client steps; full 5370 yields 84. Select and validate one final workload and matching reference-work convention before freeze.",
+    "full_performance_matrix": "Ten scenarios: eight primary, honest_change_stops secondary, mixed_drift_only_control matched reference. Ambiguous malicious-input is bounded deterministic verification outside repeated matrix.",
+    "future_instrumentation": "process-isolation/RSS and persistent-state memory accounting in full-run harness before step 8",
+    "historical_grid_upper_bound": "The 12-config cap is 3600 runs / 86400 rounds at ten scenarios, roughly 48 hours at an illustrative 2 sec/round before full-data costs; not a forecast.",
+    "scope": "one saved partition per regime; seeds vary initialization, selections and stochastic streams, not partition population"
+  },
+  "contribution_reduction": {
+    "all_contributions_zero": "individual norms 0; normalized norm shares undefined; report zero mass",
+    "consecutive_rounds": 3,
+    "matched_ratio": "observed client norm / same-client same-round matched no-intervention norm under same method/rate",
+    "reference_zero_epsilon": 1e-12,
+    "report": "event onset/confirmation, reduced and defined client-round counts, honest changed and unchanged groups separately, norm share, total contribution budget and net group contribution.",
+    "status": "primary_descriptive_measurement_of_applied_contribution_reduction; not_proof_of_penalty_or_intent",
+    "threshold_strict": 0.5,
+    "value": "L2 norm of c_i = applied_effective_coefficient_i * (submitted_state_i - broadcast_state)",
+    "zero_aggregate_with_nonzero_contributions": "cancellation; report separately with Gram matrix",
+    "zero_observed_positive_reference": "ratio 0; eligible for reduction",
+    "zero_reference": "ratio undefined; breaks streak; count and exclude from defined denominator"
+  },
+  "contribution_restoration": {
+    "consecutive_rounds": 3,
+    "first_eligible_round": "event_end + 1",
+    "last_eligible_round": "next_event_start - 1 or horizon",
+    "matched_ratio": "same contribution-norm ratio as reduction",
+    "overshoot": "retain ratios above one; lower-bound restoration does not prove calibration or useful learning",
+    "status": "primary_descriptive_measurement_of_applied_contribution_restoration",
+    "threshold_inclusive": 0.8,
+    "zero_reference": "undefined, breaks streak; report reference coverage"
+  },
+  "data": {
+    "development_images_per_client": 512,
+    "development_seeds": [
+      20261014,
+      20261015,
+      20261016
+    ],
+    "development_validation_images": 1000,
+    "final_client_and_validation_sizes": "resolve and freeze in step 7; do not infer full-data results from 512-image runs",
+    "final_evaluation_seed_count_planned": 5,
+    "final_evaluation_seeds": null,
+    "official_test_used": false,
+    "partition_registry": "outputs/non_iid_data/39663b4036d8/attempt_0001/partition_registry.json",
+    "reference_access": "FLTrust; FedReTrust may use identical reserved reference if retained in step 5",
+    "regimes": [
+      "IID",
+      "non-IID"
+    ],
+    "reserved_reference_images": 300
+  },
+  "diagnostic_controls": [
+    "mixed_drift_only_control",
+    "ambiguous_malicious_input"
+  ],
+  "full_performance_matrix_scenarios": [
+    "clean",
+    "abrupt_shot_noise",
+    "gradual_stripe",
+    "label_flip",
+    "gaussian_update",
+    "attack_stops",
+    "recurring_attack",
+    "mixed_drift_and_attack",
+    "honest_change_stops",
+    "mixed_drift_only_control"
+  ],
+  "influence_recovery": {
+    "consecutive_rounds": 3,
+    "eligibility_and_censoring": "same post-attack intervals as model recovery",
+    "excess_influence": "ratios > 1 are retained and separately reported; this lower-bound criterion does not assert calibration",
+    "minimum_coefficient_ratio_inclusive": 0.8,
+    "status": "historical_coefficient_only_diagnostic; not_primary_contribution_restoration_metric"
+  },
+  "main_research_outcomes": {
+    "attack_resistance": "Signed matched no-attack accuracy damage, active and later windows, including mixed drift-only reference; report positive area and recurrence.",
+    "client_contribution": "Actual applied contribution norm and its matched ratio, with native scores and coefficients reported separately; no inferred intent or causal benefit from the norm alone.",
+    "honest_changed_clients": "Per-seed, per-regime accuracy on the scenario-relevant clean/changed task mixture, separately for affected honest clients. Report during change and after it ends.",
+    "honest_return": "Model and per-client contribution episode status after temporary honest input change stops at round 10.",
+    "normal_learning": "Clean-task accuracy and endpoint/tail performance separately from the combined utility score.",
+    "pre_final_decisions": "Specify pairwise research contrasts, practical attack-damage tolerance, improvement targets and uncertainty interpretation before final evaluation; discuss with supervisor at Step 5.",
+    "status": "required_reported_outcomes; numerical_acceptance_margins_to_discuss_after_step_5_and_freeze_at_step_7",
+    "success_interpretation": "Jointly assess honest task usefulness, restoration, attack damage and clean task. No rank or superiority claim from combined score alone."
+  },
+  "matched_control": {
+    "ambiguity_pair": "abrupt_shot_noise vs ambiguous_malicious_input must have identical client observations and model trajectories; intent is truth only",
+    "default": "same-method, same-rate clean scenario",
+    "gaussian_caveat": "same RNG/formula, but noise std depends on each method current client delta; attack realizations need not be numerically identical across methods",
+    "match_fields": [
+      "config",
+      "method",
+      "partition_sha256",
+      "selection_sha256",
+      "initial_state_sha256",
+      "code_sha256",
+      "versions",
+      "validation_tasks",
+      "evaluation_recorder"
+    ],
+    "mixed_drift_and_attack": "mixed_drift_only_control",
+    "task_weights": "apply the observed scenario legitimate task weights to BOTH models; do not compare different target tasks"
+  },
+  "matched_control_scenarios": [
+    "mixed_drift_only_control"
+  ],
+  "model_recovery": {
+    "consecutive_rounds": 3,
+    "direction": "observed >= reference - 0.01; improvements allowed",
+    "episode_roles": "Use per-round active client behaviour; cohort flags identify historical clients only.",
+    "episode_status": "Distinguish no qualifying impairment during event, within criterion at event end, post-event restored, delayed post-event impairment, censored, and unassessable. Keep raw qualifying-streak dates separately.",
+    "first_eligible_round": "attack_end + 1",
+    "last_eligible_round": "next_attack_start - 1 or horizon",
+    "non_recovery": "no invented recovery time; show censored counts and eligible exposure; never average only successful cases as overall recovery time",
+    "reference": "matched no-attack control; clean accuracy for attack-only and legitimate-task accuracy for mixed condition",
+    "report": [
+      "earliest_streak_start_round",
+      "confirmation_round",
+      "both_delays_from_attack_end",
+      "criterion_met_at_attack_end",
+      "right_censored",
+      "censor_reason"
+    ],
+    "tolerance_percentage_points": 1.0
+  },
+  "next_step": {
+    "action": "Astra focused verification of Step 3 revision, then gap/novelty review",
+    "model": "Astra Extra High",
+    "roadmap_step": 4
+  },
+  "observability_check_scenarios": [
+    "ambiguous_malicious_input"
+  ],
+  "observation_time": "post_aggregation; round 0 is initialization, excluded from objective",
+  "primary_objective_draft": {
+    "attacked_clients": "retain their intended clean legitimate classification task; poisoned labels do not become ground truth",
+    "changed_input_accuracy_mass": "0.1059375 of combined scenario-round score for each saved regime under these fixed windows",
+    "client_weights": "1/10 each; full saved client digit frequencies q_i, separately for each regime",
+    "direction": "maximize",
+    "honest_input_drift": "scheduled fraction f: (1-f)*clean + f*changed per-digit accuracy; unchanged labels",
+    "ineligible_candidates": "missing, failed or nonfinite required run; no averaging over successful subset",
+    "metric": "population_standardized_legitimate_task_accuracy",
+    "one_configuration_per": "method and partition regime, held fixed across scenarios",
+    "reporting_guard": "Always show paired honest changed-client performance, clean utility, attack damage and return/recovery; larger combined score alone is insufficient.",
+    "round_weights": "1/20 each round 5..24",
+    "scenario_weights": "1/8 each primary scenario; controls excluded",
+    "status": "provisional_configuration_selection_summary; not_a_standalone_project_success_criterion; final_settings_not_selected",
+    "ties": "within 1e-12: lower identically weighted cross-entropy, then earlier predeclared grid index"
+  },
+  "primary_rounds": [
+    5,
+    24
+  ],
+  "primary_scenarios": [
+    "clean",
+    "abrupt_shot_noise",
+    "gradual_stripe",
+    "label_flip",
+    "gaussian_update",
+    "attack_stops",
+    "recurring_attack",
+    "mixed_drift_and_attack"
+  ],
+  "protocol_id": "step3_scenarios_metrics_revised_v2",
+  "purpose": "Predeclare schedules and measurements before longer tuning; not FedReTrust mathematics.",
+  "required_outcome_table_schema": {
+    "attack_columns": [
+      "signed_matched_accuracy_damage_pp",
+      "positive_damage_area_pp_rounds",
+      "active_attack_window",
+      "post_attack_window"
+    ],
+    "contribution_columns": [
+      "applied_contribution_l2_norm",
+      "matched_contribution_norm_ratio",
+      "native_score_or_share",
+      "applied_delta_coefficient",
+      "coefficient_ratio_diagnostic",
+      "contribution_norm_share",
+      "net_group_contribution_l2_norm",
+      "undefined_reference_indicator"
+    ],
+    "episode_columns": [
+      "event_start_round",
+      "event_end_round",
+      "qualifying_impairment_observed_during_event",
+      "criterion_met_at_event_end",
+      "status",
+      "streak_start_round",
+      "confirmation_round",
+      "observed_restoration_delay_rounds",
+      "right_censored",
+      "undefined_reference_rounds"
+    ],
+    "group_rule": "Truth labels are used only offline: honest changed group follows currently active honest input change; honest return group follows the clients with a previous honest change after it stops; currently attacking clients are identified by per-round attack_active, not the historical malicious_client cohort flag.",
+    "identifiers": [
+      "method",
+      "method_settings_sha256",
+      "partition_regime",
+      "partition_sha256",
+      "selection_seed",
+      "scenario",
+      "round",
+      "phase",
+      "client_group",
+      "matched_reference_id"
+    ],
+    "joint_conclusion_rule": "No project-success claim from the eight-scenario scalar alone. Show affected-honest task accuracy and return, clean-task accuracy, matched attack damage and restoration jointly, paired by seed and regime. Practical margins are frozen later.",
+    "predictive_columns": [
+      "population_standardized_legitimate_task_accuracy",
+      "honest_changed_group_task_accuracy",
+      "honest_returning_group_task_accuracy",
+      "honest_unchanged_group_task_accuracy",
+      "balanced_clean_accuracy",
+      "full_changed_task_accuracy",
+      "cross_entropy"
+    ],
+    "status": "reporting_contract; no final results collected"
+  },
+  "review_addressed": "outputs/scenario_metric_review/20261011/attempt_0001/review.json",
+  "review_questions": [
+    "Do the norm-based contribution measurement and accompanying task outcomes address the risk of mislabelling FLTrust rescaling as suppression?",
+    "Is the honest_change_stops secondary scenario and episode-status vocabulary sufficient to test honest return alongside the existing attack-stop case?",
+    "At Step 5, discuss improvement targets and acceptable attack-damage tradeoffs with supervisor; freeze explicit criteria at Step 7.",
+    "Before final tuning, use a common feasibility pilot to assess 24 rounds and the chosen 512/full-client budget without selecting a horizon by which method wins.",
+    "Keep conclusions conditional on one saved partition per regime and fixed affected cohorts unless broader replication is explicitly added."
+  ],
+  "rounds": 24,
+  "scenario_source": "code/scenario_metrics.py:longer_scenarios",
+  "scenarios": {
+    "abrupt_shot_noise": {
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "honest_shot_noise_severity_3",
+      "windows": [
+        [
+          5,
+          24
+        ]
+      ]
+    },
+    "ambiguous_malicious_input": {
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "same_observations_as_abrupt_shot_noise; only_simulator_intent_differs",
+      "matrix_role": "deterministic_observability_invariant; excluded from full_performance_matrix",
+      "windows": [
+        [
+          5,
+          24
+        ]
+      ]
+    },
+    "attack_stops": {
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "label_y_to_9_minus_y",
+      "windows": [
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    "clean": {
+      "events": []
+    },
+    "gaussian_update": {
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "local_state_plus_gaussian_std_population_std_of_local_delta",
+      "windows": [
+        [
+          5,
+          24
+        ]
+      ]
+    },
+    "gradual_stripe": {
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "honest_stripe",
+      "ramp_rounds": 8,
+      "windows": [
+        [
+          5,
+          24
+        ]
+      ]
+    },
+    "honest_change_stops": {
+      "clean_return_window": [
+        [
+          11,
+          24
+        ]
+      ],
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "honest_shot_noise_severity_3_then_clean",
+      "role": "required_secondary_research_scenario",
+      "windows": [
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    "label_flip": {
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "label_y_to_9_minus_y",
+      "windows": [
+        [
+          5,
+          24
+        ]
+      ]
+    },
+    "mixed_drift_and_attack": {
+      "attack_clients": [
+        0,
+        1,
+        2
+      ],
+      "attack_kind": "label_y_to_9_minus_y",
+      "attack_windows": [
+        [
+          5,
+          10
+        ]
+      ],
+      "drift_kind": "shot_noise_severity_3",
+      "drift_windows": [
+        [
+          5,
+          24
+        ]
+      ],
+      "honest_drift_clients": [
+        3,
+        4,
+        5
+      ]
+    },
+    "mixed_drift_only_control": {
+      "attack": null,
+      "drift_kind": "shot_noise_severity_3",
+      "drift_windows": [
+        [
+          5,
+          24
+        ]
+      ],
+      "honest_drift_clients": [
+        3,
+        4,
+        5
+      ]
+    },
+    "recurring_attack": {
+      "clients": [
+        0,
+        1,
+        2
+      ],
+      "kind": "label_y_to_9_minus_y",
+      "windows": [
+        [
+          5,
+          8
+        ],
+        [
+          15,
+          18
+        ]
+      ]
+    }
+  },
+  "schema_version": 2,
+  "secondary_core_scenarios": [
+    "honest_change_stops"
+  ],
+  "secondary_metrics": [
+    "balanced_clean_accuracy_and_cross_entropy_each_round",
+    "full_changed_task_accuracy_and_cross_entropy_each_round",
+    "honest_changed_client_group_task_accuracy_using_same_full_q_and_scheduled_fraction",
+    "honest_unchanged_group_accuracy; in mixed condition clients 6..9 are neither attacked nor changed",
+    "endpoint_round_24_and_tail_mean_rounds_21_24",
+    "per_digit_accuracy_counts_and_loss_sums",
+    "paired_signed_accuracy_damage_pp; positive_damage_area_pp_rounds; maximum_damage_pp",
+    "first_and_second_attack_window_damage_separately; recurrence_minus_first_mean_damage_is_descriptive_not_causal_learning_control",
+    "effective_applied_delta_coefficients; native_algorithm_scores_separately",
+    "individual_and_group_applied_contribution_norms; coefficient_and_norm_shares; cancellation_and_projection",
+    "false_suppression_client_round_fraction_on_honest_changed_and_honest_unchanged_groups_separately",
+    "model_and_client_influence_recovery; censoring_and_undefined_reference_counts",
+    "client_optimizer_steps; reference_optimizer_steps; RFA_averaging_calls; Viceroy_persistent_state_bytes",
+    "training_seconds; defence_aggregation_seconds_including_reference; metric_recording_seconds; evaluation_seconds",
+    "isolated_process_peak_RSS_bytes; method_tensor_state_bytes; hardware_and_software_environment"
+  ],
+  "sources": {
+    "Viceroy": "resources/Viceroy_Lewis_2023.pdf Algorithm 1 and Appendix D",
+    "calibration_review": "outputs/calibration_review/20261011/attempt_0001/review.json",
+    "interventions": "code/scenario_utils.py and resources/mnist_c_reference/source_manifest.json",
+    "submitted_proposal": "../proposal/FedReTrust Proposal.pdf sections 4.1, 4.2, 4.4"
+  },
+  "status": "focused_scientific_revision_implemented; awaiting_Astra_check; not_final_protocol",
+  "training_budget": {
+    "FLTrust_root_steps_per_development_round": 8,
+    "all_clients_every_round": 10,
+    "batch_size": 64,
+    "client_steps_per_development_round": 8,
+    "final_choice_frozen": false,
+    "full_client_steps_if_5370_images": 84,
+    "full_data_FLTrust_root_steps_if_used": 84,
+    "learning_rate": 0.01,
+    "local_epochs": 1,
+    "momentum": 0.9,
+    "root_note": "Same update-count convention as current adaptation; each root step samples an independent random batch of 64 without replacement within that batch, with reuse across steps from the fixed 300 images. Root LR and momentum match clients. No new root images."
+  },
+  "warmup_rounds": [
+    1,
+    4
+  ]
+}

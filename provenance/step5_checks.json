@@ -1,0 +1,42 @@
+{
+  "step": 5,
+  "status": "local_package_checks_passed_publication_pending",
+  "date": "2026-11-01",
+  "original_copied_source_hashes_still_match": 240,
+  "frozen_scientific_files_byte_identical": 73,
+  "notebook_change": "One data-path fallback made relative; every saved output and other cell source unchanged",
+  "new_portable_guard_tests_passed": 5,
+  "existing_v05_v06_tests_passed": 24,
+  "synthetic_demo_executed": true,
+  "table_reproduction": {
+    "status": "matched_frozen_tables",
+    "distinct_runs": 880,
+    "checks": {
+      "means_all_metrics": {
+        "rows": 1298,
+        "max_absolute_error": 9.947598300641403e-13,
+        "absolute_tolerance": 1e-09
+      },
+      "paired_effects": {
+        "rows": 636,
+        "max_absolute_error": 1.0231815394945443e-12,
+        "absolute_tolerance": 1e-09
+      },
+      "core_results": {
+        "rows": 110,
+        "max_absolute_error": 8.526512829121202e-14,
+        "absolute_tolerance": 1e-09
+      }
+    },
+    "followup_checks_passed": 45,
+    "followup_checks_total": 51,
+    "scope": "Recalculation from saved block metrics, not raw-log extraction, checkpoint replay or new training.",
+    "output": "generated/reproduction-step5"
+  },
+  "new_documentation_links_checked": true,
+  "absolute_user_home_paths_in_release_text": 0,
+  "full_archive_verification": "pending_step6",
+  "fresh_dependency_installation": "not_performed",
+  "github_publication": "remote_configured_authentication_pending",
+  "scope": "Step 5 smoke checks; no new performance experiments or full study reruns."
+}

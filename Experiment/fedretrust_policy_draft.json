@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "name": "FedReTrust",
+  "draft_version": "0.1",
+  "date_local": "2026-10-11",
+  "status": "mathematical_draft_for_supervisor_discussion; not_frozen; not_a_validated_algorithm",
+  "roadmap_step": 5,
+  "report": "reports/FedReTrust_Mathematical_Draft.tex",
+  "arithmetic_audit": "outputs/fedretrust_design/20261011/attempt_0001/audit_design.py",
+  "scope": {
+    "participation": "fixed known clients, all participate, contiguous rounds starting at 1",
+    "model": "one global model; submitted delta = trained model minus broadcast",
+    "sample_weights": "p_i = saved server-known client sample count / total saved count",
+    "reference": "same reserved 300 clean training images as FLTrust",
+    "performance_baselines": [
+      "FedAvg",
+      "FLTrust",
+      "RFA",
+      "Viceroy"
+    ],
+    "allowed_inputs": [
+      "current submitted deltas",
+      "server-known sample counts",
+      "current broadcast",
+      "round index",
+      "reserved-reference loss and root update",
+      "past allowed observations"
+    ],
+    "forbidden_inputs": [
+      "simulator intent",
+      "intervention schedules",
+      "future updates",
+      "official test data",
+      "matched-control outcomes",
+      "client-reported training loss"
+    ],
+    "reference_protocol_note": "The old calibration pilot says FLTrust only because FedReTrust was not implemented; Step 6/7 must explicitly extend the shared reference-access declaration without changing that historical pilot."
+  },
+  "illustrative_parameters": {
+    "clip_multiplier": 2.0,
+    "relative_loss_tolerance": 0.005,
+    "severe_loss_multiplier": 4.0,
+    "direction_history_decay": 0.5,
+    "confirmation_rounds": 2,
+    "episode_window_rounds": 8,
+    "uncertain_cap": 0.5,
+    "penalty_cap": 0.1,
+    "restoration_increment": 0.25,
+    "non_supportive_allowance": 4.0,
+    "server_learning_rate": 1.0,
+    "norm_epsilon": 1e-12,
+    "loss_epsilon": 1e-08
+  },
+  "parameter_provenance": "All policy constants are proposed illustrative choices, not estimates, published defaults or final tuned settings. Numerical epsilons are engineering conventions. Step 7 must predeclare a small joint candidate set and include all variants in the compute budget.",
+  "root_work_development_convention": {
+    "helper": "fltrust.train_root",
+    "optimizer_steps": 8,
+    "batch_size": 64,
+    "learning_rate": 0.01,
+    "momentum": 0.9,
+    "batch_namespace": "fltrust_root_batches",
+    "final_workload": "unresolved_SR06; do_not_freeze_here"
+  },
+  "geometry": {
+    "radius": "C = clip_multiplier * arithmetic median of ALL current raw delta norms, including zeros",
+    "clipped_delta": "If C or raw norm <= norm_epsilon: b=0,k=0; otherwise k=min(1,C/norm), b=k*delta",
+    "loss_probe": "h_i = [CE_R(w + eta*p_i*b_i) - CE_R(w)] / max(CE_R(w),loss_epsilon); use independent eval-mode copies",
+    "root_cosine": "cos(b_i, current root delta), undefined if either norm <= epsilon",
+    "peer_cosine": "arithmetic median cosine with other nonzero clipped deltas; undefined if none",
+    "history_cosine": "cos(b_i, previous direction memory), undefined if either norm <= epsilon",
+    "unusual": "any defined root/peer/history cosine < 0 OR clipping k < 1",
+    "discordant": "defined root cosine < 0 OR defined peer cosine < 0",
+    "current_geometry_available": "root or peer cosine defined",
+    "history_update": "after decisions, u <- lambda*u + (1-lambda)*unit(b), with unit(0)=0; EMA is decaying, not a hard finite window"
+  },
+  "evidence_priority": [
+    {
+      "code": "N",
+      "condition": "clipped norm <= norm_epsilon",
+      "meaning": "no usable update"
+    },
+    {
+      "code": "X",
+      "condition": "h > severe_loss_multiplier * relative_loss_tolerance",
+      "meaning": "severe observed reference harm"
+    },
+    {
+      "code": "B",
+      "condition": "h > relative_loss_tolerance AND discordant",
+      "meaning": "corroborated adverse evidence"
+    },
+    {
+      "code": "G",
+      "condition": "h < -relative_loss_tolerance OR (h <= relative_loss_tolerance AND NOT unusual AND current_geometry_available)",
+      "meaning": "supportive evidence under restricted observations"
+    },
+    {
+      "code": "U",
+      "condition": "otherwise",
+      "meaning": "ambiguous evidence"
+    }
+  ],
+  "state": {
+    "initial": {
+      "retained_trust": 1.0,
+      "label": "Stable",
+      "bad_streak": 0,
+      "good_streak": 0,
+      "confirmed_run": false,
+      "episode_onsets": [],
+      "remaining_allowance": 4.0,
+      "direction_memory": "zero vector"
+    },
+    "episode": "A maximal consecutive B/X run is confirmed at its Kth observation or first X. Record that confirmation round once. Prune onsets outside [t-H+1,t]. G/U/N end the run; continued B/X never append extra onsets.",
+    "good_streak": "increment on G up to K+H; reset on every other category",
+    "restoration_requirement": "K + number of recorded episode onsets currently in window",
+    "restoration_rate": "restoration_increment / (1 + number of recorded episode onsets currently in window)",
+    "provisional_multiplier": {
+      "X": "retained trust=0; Penalised; q*=0",
+      "B_confirmed": "retained trust=min(previous trust,penalty_cap); Penalised; q*=trust",
+      "B_unconfirmed": "retain trust; Uncertain; q*=min(trust,uncertain_cap)",
+      "U": "retain trust; Uncertain; q*=min(trust,uncertain_cap)",
+      "G": "If trust=1: Stable,q*=1. Else hold trust and Penalised while good streak < K+m; otherwise raise trust by restoration_increment/(1+m), capped at 1, and use Recovering or Stable. q*=new trust.",
+      "N": "retain trust and label; q*=0; no passive restoration"
+    },
+    "allowance": "For B/U/X, q=min(q*,remaining_allowance), then deduct q. G resets allowance to non_supportive_allowance and uses q=q*. N uses q=0 and leaves allowance unchanged. The allowance bounds sum(q) over every interval with no G; it is not an intent score.",
+    "state_label_note": "Retained trust, provisional multiplier and applied multiplier are distinct. Uncertain may have zero applied influence after allowance exhaustion; Penalised can retain an intermediate trust value while renewed evidence accumulates. Labels are decisions, not true client types."
+  },
+  "aggregation": {
+    "formula": "w_next = w + eta * sum_i p_i*q_i*b_i",
+    "raw_delta_coefficient": "a_i = eta*p_i*q_i*k_i",
+    "trust_mass": "Z = sum_i p_i*q_i",
+    "normalization": "fixed original sample denominator; no division by Z",
+    "all_zero": "keep broadcast; continue observation and state updates",
+    "numerics": "float64 norms, cosine, counters' scalar arithmetic and accumulation; clamp cosine to [-1,1]; cast aggregate once to model dtype; reject nonfinite arithmetic before committing any state"
+  },
+  "controls": [
+    "no_history",
+    "no_recovery",
+    "no_repeat_memory",
+    "ambiguous_as_adverse",
+    "no_finite_allowance",
+    "clipped_FedAvg",
+    "mass_only"
+  ],
+  "discussion_success_margins_percentage_points": {
+    "honest_task_gain": 1.0,
+    "maximum_clean_accuracy_loss": 1.0,
+    "maximum_excess_attack_damage": 1.0,
+    "maximum_individual_honest_or_return_accuracy_loss": 1.0
+  },
+  "success_margin_status": "planning proposals only; supervisor discussion and Step 7 preregistration required before final outcomes",
+  "carry_forward": [
+    "SR-05 horizon adequacy",
+    "SR-06 compute and root-work feasibility",
+    "SR-07 threshold sensitivity and fixed-partition limits",
+    "SV-01 auxiliary impairment flag labeling"
+  ],
+  "next_action": "supervisor discussion; Step 6 implementation with GPT-6.1 Sol Extra High after incorporating feedback",
+  "targeted_control_scenarios_draft": {
+    "no_history": [
+      "clean",
+      "abrupt_shot_noise",
+      "honest_change_stops",
+      "recurring_attack"
+    ],
+    "no_recovery": [
+      "honest_change_stops",
+      "attack_stops"
+    ],
+    "no_repeat_memory": [
+      "recurring_attack",
+      "honest_change_stops"
+    ],
+    "ambiguous_as_adverse": [
+      "abrupt_shot_noise",
+      "gradual_stripe",
+      "mixed_drift_and_attack"
+    ],
+    "no_finite_allowance": [
+      "abrupt_shot_noise",
+      "recurring_attack"
+    ],
+    "clipped_FedAvg": [
+      "clean",
+      "abrupt_shot_noise",
+      "recurring_attack",
+      "mixed_drift_and_attack"
+    ],
+    "mass_only": [
+      "clean",
+      "abrupt_shot_noise",
+      "recurring_attack",
+      "mixed_drift_and_attack"
+    ]
+  },
+  "targeted_control_dependency_rule": "Add clean to every variant; add mixed_drift_only_control for mixed_drift_and_attack. Deduplicate per variant."
+}

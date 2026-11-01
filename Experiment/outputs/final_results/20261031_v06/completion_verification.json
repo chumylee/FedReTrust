@@ -1,0 +1,104 @@
+{
+  "status": "complete_verified",
+  "reviewed_at": "2026-10-31T06:32:49.694213+00:00",
+  "package_manifest_sha256": "690f5d53d2d958b91964eb478c13a3cd37373629b8e062f32c1d567fa61e19ed",
+  "research_freeze_sha256": "e8072da6814011f5034d7f55e489c2bed71ccffa2639065287ed2cffcca06212",
+  "verification_tool_result": {
+    "status": "verified",
+    "runs": 880,
+    "numeric_summary_rows_checked": 1934,
+    "explicit_untested_core_cells": 8,
+    "executed_code_cells": 5,
+    "notebook_display_outputs": 22,
+    "figures": 5,
+    "input_hashes_checked": 2677,
+    "output_hashes_checked": 64,
+    "visual_review_record_present_and_current": false
+  },
+  "additional_numerical_checks": {
+    "paired_rows_match_unchanged_v05_v06_analyses": 318,
+    "label_flip_damage_equals_own_clean_minus_attacked_accuracy_checks": 140
+  },
+  "visual_review": [
+    {
+      "name": "core_IID",
+      "png": "figures/core_IID.png",
+      "sha256": "dda07cabc87a382e96846c086c60580ecbb37968d5e5ce16e440420ddd735268",
+      "status": "passed",
+      "tool": "view_image",
+      "notes": "All 11 method labels, five outcome axes, nominal intervals and four explicit untested noise entries are visible; no overlaps or cropped labels.",
+      "pdf_review": "Vector PDF exported from the same matplotlib figure; PDF signature verified. Visual review used its PNG counterpart."
+    },
+    {
+      "name": "core_non_IID",
+      "png": "figures/core_non_IID.png",
+      "sha256": "fec876bfed0346771bfa58e956f10d965073a30ce6c96303dcf8aa97c2295fe4",
+      "status": "passed",
+      "tool": "view_image",
+      "notes": "All 11 labels, separate non-IID outcomes, uncertainty and four untested noise entries are visible. Axes and lower/higher direction labels are readable.",
+      "pdf_review": "Vector PDF exported from the same matplotlib figure; PDF signature verified. Visual review used its PNG counterpart."
+    },
+    {
+      "name": "core_trajectories",
+      "png": "figures/core_trajectories.png",
+      "sha256": "a3a20906693563f5eb6732d34054a591cbafcae90f50517470730da7b7558d41",
+      "status": "passed",
+      "tool": "view_image",
+      "notes": "All eight regime/scenario panels, onset line, four-method legend and pointwise interval shading are visible. Unbounded t intervals can extend beyond physical accuracy bounds; these are uncertainty limits, not observed accuracies.",
+      "pdf_review": "Vector PDF exported from the same matplotlib figure; PDF signature verified. Visual review used its PNG counterpart."
+    },
+    {
+      "name": "paired_v06",
+      "png": "figures/paired_v06.png",
+      "sha256": "72ed1713c2721a39dade252caa7972043ee98c21afb35f05ba09647b138348bc",
+      "status": "passed",
+      "tool": "view_image",
+      "notes": "Eight panels show all five block dots, paired means, interval lines and zero reference. Accuracy/damage direction labels and comparator labels are readable.",
+      "pdf_review": "Vector PDF exported from the same matplotlib figure; PDF signature verified. Visual review used its PNG counterpart."
+    },
+    {
+      "name": "label_flip_blocks",
+      "png": "figures/label_flip_blocks.png",
+      "sha256": "8f70f95046bfc79b0e6813363f1bee87eeff5a7c1269fb6dbe1630c10925b62f",
+      "status": "passed",
+      "tool": "view_image",
+      "notes": "All ten regime/block panels are present, with round-5 onset, every curve and readable shared legend. No failed or difficult block omitted.",
+      "pdf_review": "Vector PDF exported from the same matplotlib figure; PDF signature verified. Visual review used its PNG counterpart."
+    }
+  ],
+  "notebook": {
+    "path": "Experiment/code/34_fedretrust_final_results.ipynb",
+    "all_5_code_cells_executed": true,
+    "error_outputs": 0,
+    "stderr_outputs": 0,
+    "display_outputs": 22,
+    "execution": "IPython InteractiveShell; saved artifacts only"
+  },
+  "coverage_review": {
+    "distinct_runs": 880,
+    "scientific_sources_unchanged": 73,
+    "raw_artifact_hashes_preserved": 11440,
+    "methods_including_controls": 14,
+    "main_comparison_methods": 11,
+    "v06_runs": 40,
+    "v06_scenarios": [
+      "clean",
+      "abrupt_shot_noise",
+      "gradual_stripe",
+      "label_flip"
+    ],
+    "flaura_fedcognis_noise": "not_tested; eight regime/method cells explicitly NA",
+    "historical_component_tests": "v0.3 only",
+    "historical_recovery": "no v0.5/v0.6 inference"
+  },
+  "decision_review": "Selected v0.6, retaining v0.5 comparison. Full target success false; 45/51 follow-up gates. Original failed pilots unchanged. Known development blocks; no universal best or established novelty claim.",
+  "no_training_or_new_evaluation": true,
+  "limitations": [
+    "This package indexes large raw artifacts in their original locations; it is not a standalone copy of all checkpoints/data.",
+    "Submission code cleanup, independent reproducibility checks, report and presentation remain later steps."
+  ],
+  "html_navigation_check": {
+    "links_and_anchors_checked": 69,
+    "broken": 0
+  }
+}

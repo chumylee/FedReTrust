@@ -1,0 +1,15 @@
+method,display_name,runs,server_reference_images,reference_role,implementation_scope,official_test_used,defence_uses_evaluation_data
+FLAURA-reconstruction,FLAURA reconstruction,30,100,100 auxiliary images plus earlier frozen calibration,documented reconstruction/sensitivity variant; not full-paper reproduction,False,False
+FLAURA-sigma-double,FLAURA double sigma,30,100,100 auxiliary images plus earlier frozen calibration,documented reconstruction/sensitivity variant; not full-paper reproduction,False,False
+FLTrust,FLTrust,100,300,300 clean root-training images,frozen project implementation,False,False
+FedAvg,FedAvg,100,0,no server reference images,frozen project implementation,False,False
+FedCognis-aggregation,FedCognis aggregation,30,0,no server reference images,documented reconstruction/sensitivity variant; not full-paper reproduction,False,False
+FedCognis-squared-distance,FedCognis squared distance,30,0,no server reference images,documented reconstruction/sensitivity variant; not full-paper reproduction,False,False
+FedReTrust-Direction-loose,FedReTrust v0.3,100,0,no server reference images,frozen project implementation,False,False
+FedReTrust-v03-capped-RFA,FedReTrust-v03-capped-RFA,60,0,no server reference images,v0.3-only component control,False,False
+FedReTrust-v03-no-clipping,FedReTrust-v03-no-clipping,60,0,no server reference images,v0.3-only component control,False,False
+FedReTrust-v03-no-restoration,FedReTrust-v03-no-restoration,60,0,no server reference images,v0.3-only component control,False,False
+FedReTrust-v05,FedReTrust v0.5,40,0,no server reference images,frozen project implementation,False,False
+FedReTrust-v06,FedReTrust v0.6,40,0,no server reference images,frozen project implementation,False,False
+RFA,RFA,100,0,no server reference images,frozen project implementation,False,False
+Viceroy,Viceroy,100,0,no server reference images,frozen project implementation,False,False

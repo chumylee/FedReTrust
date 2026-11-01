@@ -1,0 +1,8 @@
+{
+  "status": "remote_configured_authentication_pending",
+  "repository_url": "https://github.com/chumylee/FedReTrust",
+  "visibility": null,
+  "pushed": false,
+  "assessor_access_verified": false,
+  "note": "Local origin is configured. Browser sign-in is needed before upload; assessor access remains unverified."
+}

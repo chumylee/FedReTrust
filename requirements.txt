@@ -1,0 +1,3 @@
+-r requirements-demo.txt
+matplotlib==3.11.1
+nbformat==5.11.1

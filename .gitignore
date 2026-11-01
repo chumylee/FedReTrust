@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+.env
+.env.*
+generated/
+Experiment/data/MNIST/
+*.pt
+*.pth
+*.ckpt
+# Raw runs and historical output trees are intentionally outside this package.
+Experiment/outputs/scenarios/
+Experiment/outputs/reference_free/
+Experiment/outputs/validation_replication/
+*.zip

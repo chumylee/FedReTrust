@@ -1,0 +1,16 @@
+{
+  "retrieved": "2026-10-30",
+  "author": "Yang Xiao",
+  "doi": "10.1038/s41598-026-50985-2",
+  "public_author_code_located": false,
+  "files": {
+    "article.html": {
+      "url": "https://www.nature.com/articles/s41598-026-50985-2",
+      "sha256": "d3c29bd38fa6fadd0683d2d578b887c8029a267596b94416e17562aed8a70578"
+    },
+    "algorithm1.png": {
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-026-50985-2/MediaObjects/41598_2026_50985_Figa_HTML.png",
+      "sha256": "e1152376643f9cb93027f3d8437716f1c0182ebde542128d22877ee12d526720"
+    }
+  }
+}

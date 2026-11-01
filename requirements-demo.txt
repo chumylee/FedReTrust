@@ -1,0 +1,6 @@
+# Exact direct versions recorded in the existing research environment.
+# torchvision and pandas are imported by the unchanged experiment core.
+torch==2.13.0
+torchvision==0.28.0
+numpy==2.5.2
+pandas==3.0.5

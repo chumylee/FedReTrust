@@ -1,0 +1,18 @@
+{
+  "status": "complete_verified",
+  "verified_at": "2026-10-31T04:39:11.929412+00:00",
+  "step": 2,
+  "selected_method": "FedReTrust-v06",
+  "scientific_sources_verified": 73,
+  "authoritative_runs_verified": 880,
+  "raw_artifact_hashes_verified": 11440,
+  "study_and_report_artifacts_verified": 184,
+  "research_freeze_sha256": "e8072da6814011f5034d7f55e489c2bed71ccffa2639065287ed2cffcca06212",
+  "selection_sha256": "d855516ad777c88d78eedd1f089a9e0e1fa9ed45ee1d6712318c616ce22e908a",
+  "verification_command": "python3 Experiment/outputs/research_freeze/20261031_v06_final/verify_freeze.py",
+  "verification_exit_code": 0,
+  "new_training_runs": 0,
+  "scientific_source_changes": 0,
+  "claim_status": "Final project candidate selected; all-target success, universal superiority and established novelty are not claimed.",
+  "next_step": 3
+}

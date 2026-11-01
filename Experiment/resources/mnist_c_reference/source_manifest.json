@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/google-research/mnist-c",
+  "commit": "bba57e4ccc282f106907c5239958e72298451ea7",
+  "selected_functions": [
+    "shot_noise",
+    "stripe"
+  ],
+  "files": {
+    "corruptions.py": {
+      "url": "https://raw.githubusercontent.com/google-research/mnist-c/bba57e4ccc282f106907c5239958e72298451ea7/corruptions.py",
+      "sha256": "fb1b451715d9ba837e1778241bf959242156b8d0c66c9c01a3fa2f70e9bbfa49"
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/google-research/mnist-c/bba57e4ccc282f106907c5239958e72298451ea7/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  },
+  "adaptations": [
+    "Shot noise uses an explicit local NumPy Generator rather than global np.random.",
+    "Noise is seeded per original image index and fixed across epochs and rounds.",
+    "MNIST-C-derived corruptions are applied to the saved training/development splits; precomputed test images are not loaded."
+  ],
+  "paper": "https://arxiv.org/abs/1906.02337"
+}
