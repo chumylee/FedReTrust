@@ -1,8 +1,10 @@
 {
-  "status": "remote_configured_authentication_pending",
+  "status": "uploaded_private_assessor_access_pending",
   "repository_url": "https://github.com/chumylee/FedReTrust",
-  "visibility": null,
-  "pushed": false,
+  "visibility": "private",
+  "pushed": true,
   "assessor_access_verified": false,
-  "note": "Local origin is configured. Browser sign-in is needed before upload; assessor access remains unverified."
+  "note": "Uploaded and remote main verified. This record identifies the initial upload commit; later documentation updates may follow. Assessor access remains pending.",
+  "verified_uploaded_commit": "97fdefb27c3b1aafacb5762b59c1cead7004a0c2",
+  "verified_file_count": 263
 }

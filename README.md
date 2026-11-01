@@ -80,5 +80,6 @@ entry points. Follow the commands above rather than running every notebook or
 relaunching the full study.
 
 Repository: [chumylee/FedReTrust](https://github.com/chumylee/FedReTrust).
-Upload and assessor access are being configured. See `provenance/publication.json`
-for the current state; a configured URL alone does not establish access.
+The submission package has been uploaded. The repository is currently private;
+assessor access remains to be arranged. See `provenance/publication.json` for
+the verified upload and current access state.

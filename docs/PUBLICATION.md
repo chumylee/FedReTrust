@@ -1,15 +1,11 @@
 # GitHub publication and assessor access
 
-Status is recorded in `provenance/publication.json`. A local submission copy
-does not yet provide an accessible GitHub/Bitbucket link.
+The reviewed submission package is uploaded to
+[chumylee/FedReTrust](https://github.com/chumylee/FedReTrust), currently private.
+`provenance/publication.json` records the verified initial upload commit and
+file count. Later documentation commits may follow that initial upload.
 
-Create an empty repository under the student's GitHub account, for example
-`fedretrust-comp6002`. Start private while preparing the upload. Do not initialize
-the remote with README, .gitignore or license files: this local package contains
-its README and ignore rules, and original-code licensing has not been selected.
-
-After the owner supplies the actual URL, connect **only this submission folder**,
-not the parent research workspace. Review the file list before pushing. Raw data,
+Only this separate submission folder is connected to the remote. Raw data,
 checkpoints, the large archive and local generated outputs are excluded.
 
 Before putting the repository link in the report, verify that the assessor can

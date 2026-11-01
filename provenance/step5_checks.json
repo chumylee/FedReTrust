@@ -1,6 +1,6 @@
 {
   "step": 5,
-  "status": "local_package_checks_passed_publication_pending",
+  "status": "local_package_checks_passed_uploaded_assessor_access_pending",
   "date": "2026-11-01",
   "original_copied_source_hashes_still_match": 240,
   "frozen_scientific_files_byte_identical": 73,
@@ -37,6 +37,11 @@
   "absolute_user_home_paths_in_release_text": 0,
   "full_archive_verification": "pending_step6",
   "fresh_dependency_installation": "not_performed",
-  "github_publication": "remote_configured_authentication_pending",
-  "scope": "Step 5 smoke checks; no new performance experiments or full study reruns."
+  "github_publication": "uploaded_private_assessor_access_pending",
+  "scope": "Step 5 smoke checks; no new performance experiments or full study reruns.",
+  "data_checker": {
+    "paired_partitions": 10,
+    "training_files": 2,
+    "official_test_opened": false
+  }
 }
