@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "status": "verified_with_documented_limits",
+  "research_freeze": {
+    "status": "verified",
+    "selected_method": "FedReTrust-v06",
+    "scientific_sources": 73,
+    "authoritative_runs": 880,
+    "raw_artifact_hashes": 11440,
+    "study_and_report_artifacts": 184,
+    "research_freeze_sha256": "e8072da6814011f5034d7f55e489c2bed71ccffa2639065287ed2cffcca06212"
+  },
+  "isolated_package": {
+    "extracted_outside_project": true,
+    "package_hash_verification": "passed",
+    "copied_files_byte_identical": 239,
+    "document_only_transformations": 1,
+    "frozen_scientific_sources": 73,
+    "recalculated_means_rows": 1298,
+    "recalculated_paired_rows": 636,
+    "recalculated_core_rows": 110,
+    "numeric_tolerance_absolute": 1e-09,
+    "synthetic_demo": "passed",
+    "baseline_paper_pdfs_downloaded_and_verified": 3
+  },
+  "saved_evidence": {
+    "run_access_setting_identities": 880,
+    "v06_runs": 40,
+    "v06_regime_scenario_cells": 8,
+    "official_test_used_runs_per_records": 0,
+    "defence_evaluation_access_runs_per_records": 0,
+    "followup_gates_passed": 45,
+    "followup_gates_failed": 6
+  },
+  "tests": {
+    "portable_guard": 5,
+    "fedretrust_v05_v06": 24,
+    "scenarios": 10,
+    "rfa": 16,
+    "scenario_metrics": 25,
+    "fltrust": 12,
+    "viceroy": 18,
+    "total_passed": 110
+  },
+  "resolved_finding": "Four initial isolated baseline-test errors came from omitted cached paper PDFs. The verified public-paper download/copy helper restored them; all four relevant suites then passed. No frozen code changed.",
+  "limits": [
+    "Same installed Python 3.14 dependencies used for isolated copy; no independent fresh install",
+    "No full 880-run retraining or checkpoint replay",
+    "Table reproduction starts from saved block metrics",
+    "Official test set remains unused; access conclusion is based on saved records",
+    "Five known development blocks; intervals exploratory, no independent confirmation",
+    "No v0.6 recovery or component-ablation findings"
+  ]
+}

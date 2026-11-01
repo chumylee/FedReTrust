@@ -52,6 +52,20 @@ official test set. The inspected loader lists the mirror
 `https://ossci-datasets.s3.amazonaws.com/mnist/`; downloads require network access.
 The downloader and a fresh install have not been tested by this packaging step.
 
+Three historical baseline constructors also hash locally cached published paper
+PDFs. They are omitted from Git and the ZIP. Restore the exact verified bytes
+before running broad baseline tests:
+
+```sh
+python3 -B tools/prepare_reference_papers.py --download
+```
+
+If you already have the original research cache, use
+`--from-directory /path/to/original/Experiment/resources` instead. The helper
+checks the frozen SHA-256 of each PDF, refuses changed bytes and never touches
+training/evaluation data. Downloading requires access to the publisher/arXiv
+URLs listed in `Experiment/resources/README.md`.
+
 Expected uncompressed files under `Experiment/data/MNIST/raw`:
 
 | File | SHA-256 |

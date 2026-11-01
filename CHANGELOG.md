@@ -24,6 +24,11 @@ reported study measurement has been changed.
    the original is untouched. No numerical calculation was edited.
 7. Added explicit dependency, packaging, publication and reproducibility notes.
    Study-wide refactoring is deliberately avoided to preserve numerical behavior.
+8. Step 6 isolation exposed three historical baseline constructors requiring
+   cached paper PDFs. Added a verified local fetch/copy tool; frozen sources
+   remain unchanged and the PDFs stay outside the public repository.
+9. Added a saved-run/access/gate audit and the completed Step 6 verification
+   record. These read saved evidence and do not change reported science.
 
 The copied source hash check provides exact source equivalence. Command smoke
 checks belong to Step 5; full archive integrity and broader reproducibility

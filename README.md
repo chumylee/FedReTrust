@@ -18,6 +18,7 @@ Run from this repository's root with Python 3.10 or newer:
 ```sh
 python3 -B tools/verify_submission.py
 python3 -B tools/reproduce_results.py --name first
+python3 -B tools/audit_saved_evidence.py
 ```
 
 Open `generated/reproduction-first/results.html` in a browser. The command
@@ -53,6 +54,7 @@ Its trace is saved separately in `generated/demo-first/trace.json`.
 | Algorithm explanation and module map | [Architecture](docs/ARCHITECTURE.md) |
 | Exact data and setup instructions | [Data and environment](docs/DATA_AND_SETUP.md) |
 | Reproduction levels and limitations | [Reproducibility](docs/REPRODUCIBILITY.md) |
+| Completed Step 6 verification | [Verification record](docs/VERIFICATION_20261101.md) |
 | Practical demo walkthrough | [Demo guide](docs/DEMO.md) |
 | Included and omitted artifacts | [Packaging decisions](docs/PACKAGING.md) |
 | Every source-to-copy mapping and hash | [Source map](provenance/source_map.json) |
@@ -60,6 +62,11 @@ Its trace is saved separately in `generated/demo-first/trace.json`.
 | Upstream attribution | [Third-party notices](THIRD_PARTY_NOTICES.md) |
 | GitHub publication and access | [Publication](docs/PUBLICATION.md) |
 | Final executed notebook (read-only historical output) | [Notebook 34](Experiment/code/34_fedretrust_final_results.ipynb) |
+
+Broader baseline tests need three published paper PDFs that their unchanged
+constructors hash. They are excluded from Git; restore verified copies with
+`python3 -B tools/prepare_reference_papers.py --download` before those tests.
+The saved-run/access/failure audit is `tools/audit_saved_evidence.py`.
 
 ## Evidence scope
 

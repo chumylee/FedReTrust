@@ -10,6 +10,8 @@ Experiment/data/MNIST/
 *.pt
 *.pth
 *.ckpt
+Experiment/resources/*.pdf
+Experiment/resources/.reference-*.tmp
 # Raw runs and historical output trees are intentionally outside this package.
 Experiment/outputs/scenarios/
 Experiment/outputs/reference_free/

@@ -29,6 +29,11 @@ The source-map entries do not claim all copied historical orchestrators work
 without the omitted archive. Their constants and hash chains still describe
 the original research layout. Use the documented portable tools for assessment.
 
+Historical RFA, FLTrust and Viceroy constructors hash three cached paper PDFs.
+Use `tools/prepare_reference_papers.py` to fetch/copy and verify the exact files
+locally before broad baseline tests. This keeps those PDFs out of public Git
+while allowing the unchanged baseline code to run.
+
 No project-management snapshots, student contributions, signatures, supervisor
 confirmations, repository publication or submission events have been fabricated.
 

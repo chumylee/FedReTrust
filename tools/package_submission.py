@@ -23,7 +23,8 @@ def main():
             raise ValueError('Frozen scientific source changed: ' + relative)
     for name in ('README.md', 'CHANGELOG.md', 'THIRD_PARTY_NOTICES.md', '.gitignore',
                  'requirements-demo.txt', 'requirements.txt', 'provenance/source_map.json',
-                 'provenance/publication.json', 'provenance/step5_checks.json'):
+                 'provenance/publication.json', 'provenance/step5_checks.json',
+                 'provenance/step6_checks.json'):
         files.add(ROOT / name)
     for folder, pattern in [('tools', '*.py'), ('tests', '*.py'), ('docs', '*.md')]:
         files.update((ROOT / folder).glob(pattern))
