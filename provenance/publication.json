@@ -1,10 +1,16 @@
 {
-  "status": "uploaded_private_assessor_access_pending",
+  "status": "uploaded_public_access_verified",
   "repository_url": "https://github.com/chumylee/FedReTrust",
-  "visibility": "private",
+  "visibility": "public",
   "pushed": true,
-  "assessor_access_verified": false,
-  "note": "Uploaded and remote main verified. This record identifies the initial upload commit; later documentation updates may follow. Assessor access remains pending.",
+  "assessor_access_verified": true,
+  "note": "Owner explicitly requested public visibility. Repository API and web page are accessible without authentication. No individual marker visit is implied.",
   "verified_uploaded_commit": "97fdefb27c3b1aafacb5762b59c1cead7004a0c2",
-  "verified_file_count": 263
+  "verified_file_count": 263,
+  "access_verification": {
+    "method": "Unauthenticated HTTPS requests; no Authorization header or browser session",
+    "repository_api_http_status": 200,
+    "repository_page_http_status": 200,
+    "date": "2026-11-01"
+  }
 }
