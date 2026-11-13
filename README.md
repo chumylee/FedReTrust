@@ -11,6 +11,8 @@ IID stripe adaptation. RFA retained better mean attack protection; v0.6 retained
 better honest-stripe accuracy. The follow-up passed **45/51** engineering checks,
 not all of them. This is not a universal winner or an established novelty claim.
 
+For the 48-round comparison on Fashion-MNIST, EMNIST Balanced and Smartphone HAR, see the [publication runner](publication/README.md).
+
 ## Start here — no dataset or ML installation needed
 
 Run from this repository's root with Python 3.10 or newer:

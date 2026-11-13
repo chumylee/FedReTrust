@@ -1,0 +1,4 @@
+.venv-cuda/
+data/
+results/smoke/
+results/full/
