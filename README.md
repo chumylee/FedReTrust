@@ -1,3 +1,20 @@
+# FedReTrust research code
+
+The current manuscript artifact is in **[publication/](publication/README.md)**:
+FedReTrust, RFA, FLTrust and adapted Viceroy on MNIST, Fashion-MNIST,
+EMNIST Balanced and Smartphone HAR. The saved evidence includes all 240
+paper jobs and the completed accuracy, precision and recall table.
+
+```sh
+python3 publication/reproduce.py
+```
+
+This rebuilds the paper table without training or installing ML packages.
+See [the results](publication/tables/results_table.md) and
+[training instructions](publication/README.md#train-the-paper-experiments-again).
+
+---
+
 # FedReTrust v0.6 — COMP6002 submission code
 
 FedReTrust is an experimental federated aggregation method combining client
@@ -11,7 +28,7 @@ IID stripe adaptation. RFA retained better mean attack protection; v0.6 retained
 better honest-stripe accuracy. The follow-up passed **45/51** engineering checks,
 not all of them. This is not a universal winner or an established novelty claim.
 
-For the 48-round comparison on Fashion-MNIST, EMNIST Balanced and Smartphone HAR, see the [publication runner](publication/README.md).
+For the current four-dataset paper, code, validated metrics and reproduction commands, see the [publication artifact](publication/README.md).
 
 ## Start here — no dataset or ML installation needed
 

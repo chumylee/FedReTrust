@@ -1,0 +1,25 @@
+{
+  "initial_model_sha256": "fa5c1fac3c970faa5df4a234ea48e02aa4e776257618388b1519f662810d37f0",
+  "settings": {
+    "max_iterations": 3,
+    "smoothing": 1e-06,
+    "relative_tolerance": 1e-06,
+    "weighting": "sample_count_then_inverse_joint_l2_distance",
+    "initialization": "sample_weighted_mean",
+    "accumulation_dtype": "float64",
+    "delta_convention": "trained_minus_broadcast; add_aggregate",
+    "stopping_objective": "smoothed_geometric_median; relative_change_over_previous_objective",
+    "budget_accounting": "one_initial_mean_plus_iterations_used_reweighted_means",
+    "secure_aggregation_implemented": false,
+    "implementation_sha256": "1b4da80b87fb619aabd01f0df18f05cc3295a4bf496bac45a9e082622e3c31a2",
+    "paper_sha256": "1875d0d6914a0f95394043743e000d057def68ee9a673e4ba5b1be9152a61cbc",
+    "reference_manifest_sha256": "c931fc8c42e3a2615f050f302c97c09c463db34a9f15ee1d3c69e00fb5eb3cf1"
+  },
+  "seconds": 17.699643457999628,
+  "status": "completed",
+  "failure": null,
+  "mean_pct": 67.14840397043926,
+  "round24_pct": 69.4855535972651,
+  "final_pct": 75.51711517581494,
+  "measurements_sha256": "e6248ee7db41d161b6bd3f7e36059efa925a492e64006dc380e36363ad90769c"
+}

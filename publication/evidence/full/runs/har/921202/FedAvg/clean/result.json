@@ -1,0 +1,14 @@
+{
+  "initial_model_sha256": "3fb65ba5b6702b403dbc52a6d250a0eb5fdf9ecfa4fdac570a01510cc2e75186",
+  "settings": {
+    "weighting": "sample_count",
+    "accumulation_dtype": "float64"
+  },
+  "seconds": 18.513885082999877,
+  "status": "completed",
+  "failure": null,
+  "mean_pct": 69.03090970786933,
+  "round24_pct": 68.8496776382762,
+  "final_pct": 79.67424499491008,
+  "measurements_sha256": "6011991e7bbb51aaae94569fb35365941635e70a9aa0509a45f3dc86b436e506"
+}

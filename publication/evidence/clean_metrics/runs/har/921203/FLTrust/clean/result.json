@@ -1,0 +1,28 @@
+{
+  "initial_model_sha256": "aa140f8545e94bd5bfd065e0501ae93be686e2d599e6ce3c4035f7b7c680b464",
+  "settings": {
+    "root_steps": 8,
+    "root_batch_size": 64,
+    "root_learning_rate": 0.03,
+    "root_momentum": 0.9,
+    "global_learning_rate": 1.0,
+    "epsilon": 1e-12,
+    "clean_reference_examples": 300,
+    "implementation_sha256": "6188d3aaa272ab8acc56082eae3ceabb90036a02bd6abf5221d73b8597ef805b"
+  },
+  "seconds": 19.869155291991774,
+  "status": "completed",
+  "failure": null,
+  "mean_pct": 73.72829071166363,
+  "round24_pct": 75.12724804886325,
+  "final_pct": 84.08551068883611,
+  "metrics": {
+    "accuracy": 73.72829071166363,
+    "macro_precision": 75.57942982702953,
+    "macro_recall": 72.95989731237505
+  },
+  "files": {
+    "per_round.csv": "6dde776718e5a6ed3afb910d8e4891c69ecc28b3a80c2facf467ab1f7dc9d178",
+    "confusions.npz": "a5af4121f190f09bb4b1a951de7c6b5a6006a048a960f7e7c73046762af293b7"
+  }
+}

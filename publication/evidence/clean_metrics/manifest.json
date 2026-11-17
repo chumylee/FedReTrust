@@ -1,0 +1,69 @@
+{
+  "jobs": 60,
+  "rounds": 48,
+  "report_rounds": [
+    5,
+    48
+  ],
+  "device": "mps",
+  "torch": "2.13.0",
+  "numpy": "2.5.2",
+  "seeds": {
+    "fashion_mnist": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "emnist_balanced": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "har": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ]
+  },
+  "methods": [
+    "RFA",
+    "FLTrust",
+    "Viceroy",
+    "FedReTrust-v06"
+  ],
+  "conditions": [
+    "clean"
+  ],
+  "local_epochs": 1,
+  "batch_size": 64,
+  "momentum": 0.9,
+  "metrics": [
+    "accuracy",
+    "macro_precision",
+    "macro_recall"
+  ],
+  "macro_zero_division": 0,
+  "source_manifest_sha256": "a73ec31ddd673219dfa5391cde30bae3115e122b4227cda737662d9538bbf1ed",
+  "source_sha256": {
+    "publication/clean_metrics.py": "6cb33d2a303f22fba6267769a7d2b789e779610a806f9c262a0ae937608025cd",
+    "publication/table2_metrics.py": "12221c61f2578bfba3abf8c3f9cee3eff61215e0a22bc2cca772e11aecc4d5b6",
+    "publication/study.py": "776e3e8f67bc04ddda2b395222689cb2e6daf01b781095e3b90d1d0e13aad074",
+    "publication/data.py": "182079b202d0a67b8d74d88f3508e5bd800f1c2d369a33d740745e00363b247d",
+    "Experiment/code/experiment_core.py": "b4e22bdc48001091cb15b2176e430946bad5d17be57c8c3843948122051b9007",
+    "Experiment/code/rfa.py": "1b4da80b87fb619aabd01f0df18f05cc3295a4bf496bac45a9e082622e3c31a2",
+    "Experiment/code/fltrust.py": "6188d3aaa272ab8acc56082eae3ceabb90036a02bd6abf5221d73b8597ef805b",
+    "Experiment/code/viceroy.py": "6dc8762629c7a0ebc3541a3486e381d71b8467248c5aba849b11eed148fff383",
+    "Experiment/code/fedretrust_v06.py": "55524516f251258728ad9d6d588ece3145b98d6c650dcdebf4e72ac212944f89",
+    "Experiment/code/fedretrust_v05.py": "6f614fcbe8a708b234ca5c6d7601f15bc25061c176bd7bae96718e1892c6a639",
+    "Experiment/code/fedretrust_directional.py": "148795098df039fdab382c69cca00abae9d5135b2afcbd75f5470ffcfd6adea3",
+    "Experiment/code/fedretrust_reference_free.py": "48a505f6f7b268949fe46a965c712ca12582f4e56fcff77cd01b674d187868ad",
+    "Experiment/code/non_iid_partitions.py": "65063379ced1c09477b639909706b3bba6422f94d3a3d91f835ac453879281e8",
+    "Experiment/code/scenario_utils.py": "17d137a42b2f066482c67465719b64ebf24cf7046eff75ad293c2f790ebdb2db"
+  }
+}

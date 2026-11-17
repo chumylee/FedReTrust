@@ -1,0 +1,33 @@
+{
+  "initial_model_sha256": "a3bb6303bc6c905288312146177c116b2f07bda98463159966be0a1aff0be76f",
+  "settings": {
+    "max_iterations": 3,
+    "smoothing": 1e-06,
+    "relative_tolerance": 1e-06,
+    "weighting": "sample_count_then_inverse_joint_l2_distance",
+    "initialization": "sample_weighted_mean",
+    "accumulation_dtype": "float64",
+    "delta_convention": "trained_minus_broadcast; add_aggregate",
+    "stopping_objective": "smoothed_geometric_median; relative_change_over_previous_objective",
+    "budget_accounting": "one_initial_mean_plus_iterations_used_reweighted_means",
+    "secure_aggregation_implemented": false,
+    "implementation_sha256": "1b4da80b87fb619aabd01f0df18f05cc3295a4bf496bac45a9e082622e3c31a2",
+    "paper_sha256": "1875d0d6914a0f95394043743e000d057def68ee9a673e4ba5b1be9152a61cbc",
+    "reference_manifest_sha256": "c931fc8c42e3a2615f050f302c97c09c463db34a9f15ee1d3c69e00fb5eb3cf1"
+  },
+  "seconds": 22.647789791983087,
+  "status": "completed",
+  "failure": null,
+  "mean_pct": 59.77151837524178,
+  "round24_pct": 62.60638297872341,
+  "final_pct": 70.15957446808511,
+  "metrics": {
+    "accuracy": 59.77151837524178,
+    "macro_precision": 62.35250512758024,
+    "macro_recall": 59.771518375241776
+  },
+  "files": {
+    "per_round.csv": "4f55326d3e2963f9c038367e76e5b1622c135c7a1e2f3dd8f93bc1d8bf00e337",
+    "confusions.npz": "3afce68dc148d959268f2b0552968e5061f51e33f9418891c528747035c3e310"
+  }
+}

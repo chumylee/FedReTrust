@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "fashion_mnist",
+    "seed": 1111201,
+    "method": "Viceroy",
+    "condition": "clean",
+    "round": 7,
+    "message": "Non-finite submitted model."
+  },
+  {
+    "dataset": "fashion_mnist",
+    "seed": 1111201,
+    "method": "Viceroy",
+    "condition": "honest_drift",
+    "round": 7,
+    "message": "Non-finite submitted model."
+  },
+  {
+    "dataset": "fashion_mnist",
+    "seed": 1111201,
+    "method": "Viceroy",
+    "condition": "label_flip",
+    "round": 11,
+    "message": "Non-finite submitted model."
+  },
+  {
+    "dataset": "har",
+    "seed": 921202,
+    "method": "Viceroy",
+    "condition": "honest_drift",
+    "round": 9,
+    "message": "Non-finite submitted model."
+  }
+]

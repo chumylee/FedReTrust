@@ -1,0 +1,75 @@
+{
+  "dataset": "mnist",
+  "rounds": 48,
+  "report_rounds": [
+    5,
+    48
+  ],
+  "seeds": [
+    1711201,
+    1711202,
+    1711203,
+    1711204,
+    1711205
+  ],
+  "methods": [
+    "RFA",
+    "FLTrust",
+    "Viceroy",
+    "FedReTrust-v06"
+  ],
+  "conditions": [
+    "clean",
+    "honest_drift",
+    "label_flip"
+  ],
+  "jobs": 60,
+  "device": "mps",
+  "torch": "2.13.0",
+  "numpy": "2.5.2",
+  "local_epochs": 1,
+  "batch_size": 64,
+  "momentum": 0.9,
+  "learning_rate": 0.01,
+  "clients": 10,
+  "samples_per_client": 512,
+  "dirichlet_alpha": 0.5,
+  "affected_clients": [
+    0,
+    1,
+    2
+  ],
+  "root_size": 300,
+  "evaluation_size": 1000,
+  "drift_ramp_rounds": 8,
+  "evaluation_selection_seed": 1111199,
+  "metrics": [
+    "accuracy",
+    "macro_precision",
+    "macro_recall"
+  ],
+  "macro_zero_division": 0,
+  "parent_manifest_sha256": "a73ec31ddd673219dfa5391cde30bae3115e122b4227cda737662d9538bbf1ed",
+  "data_sha256": {
+    "train-images-idx3-ubyte.gz": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+    "train-labels-idx1-ubyte.gz": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c",
+    "t10k-images-idx3-ubyte.gz": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+    "t10k-labels-idx1-ubyte.gz": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6"
+  },
+  "source_sha256": {
+    "publication/mnist_study.py": "92d01329d8b25f758ab3845bf320c0fb0c9a2eeff6cce95a5d14402ff0e929e1",
+    "publication/table2_metrics.py": "12221c61f2578bfba3abf8c3f9cee3eff61215e0a22bc2cca772e11aecc4d5b6",
+    "publication/study.py": "776e3e8f67bc04ddda2b395222689cb2e6daf01b781095e3b90d1d0e13aad074",
+    "publication/data.py": "182079b202d0a67b8d74d88f3508e5bd800f1c2d369a33d740745e00363b247d",
+    "Experiment/code/experiment_core.py": "b4e22bdc48001091cb15b2176e430946bad5d17be57c8c3843948122051b9007",
+    "Experiment/code/rfa.py": "1b4da80b87fb619aabd01f0df18f05cc3295a4bf496bac45a9e082622e3c31a2",
+    "Experiment/code/fltrust.py": "6188d3aaa272ab8acc56082eae3ceabb90036a02bd6abf5221d73b8597ef805b",
+    "Experiment/code/viceroy.py": "6dc8762629c7a0ebc3541a3486e381d71b8467248c5aba849b11eed148fff383",
+    "Experiment/code/fedretrust_v06.py": "55524516f251258728ad9d6d588ece3145b98d6c650dcdebf4e72ac212944f89",
+    "Experiment/code/fedretrust_v05.py": "6f614fcbe8a708b234ca5c6d7601f15bc25061c176bd7bae96718e1892c6a639",
+    "Experiment/code/fedretrust_directional.py": "148795098df039fdab382c69cca00abae9d5135b2afcbd75f5470ffcfd6adea3",
+    "Experiment/code/fedretrust_reference_free.py": "48a505f6f7b268949fe46a965c712ca12582f4e56fcff77cd01b674d187868ad",
+    "Experiment/code/non_iid_partitions.py": "65063379ced1c09477b639909706b3bba6422f94d3a3d91f835ac453879281e8",
+    "Experiment/code/scenario_utils.py": "17d137a42b2f066482c67465719b64ebf24cf7046eff75ad293c2f790ebdb2db"
+  }
+}

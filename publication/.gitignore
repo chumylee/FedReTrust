@@ -1,4 +1,6 @@
+.conda-python312/
 .venv-cuda/
 data/
-results/smoke/
-results/full/
+# Live training output stays local; the curated paper evidence is in evidence/.
+results/
+*.log

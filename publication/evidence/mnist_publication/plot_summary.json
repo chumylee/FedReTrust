@@ -1,0 +1,447 @@
+[
+  {
+    "dataset": "mnist",
+    "condition": "label_flip",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 86.41863636363635
+  },
+  {
+    "dataset": "mnist",
+    "condition": "label_flip",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 84.3031818181818
+  },
+  {
+    "dataset": "mnist",
+    "condition": "label_flip",
+    "method": "Viceroy",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 22.651363636363634
+  },
+  {
+    "dataset": "mnist",
+    "condition": "label_flip",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 84.44227272727274
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "label_flip",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 71.17318181818182
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "label_flip",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 67.345
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "label_flip",
+    "method": "Viceroy",
+    "completed": 4,
+    "seeds": [
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 24.01590909090909
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "label_flip",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 67.93909090909091
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "label_flip",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 51.77369439071567
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "label_flip",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 47.055851063829785
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "label_flip",
+    "method": "Viceroy",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 4.9514023210831715
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "label_flip",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 51.524903288201166
+  },
+  {
+    "dataset": "har",
+    "condition": "label_flip",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 66.24903599962983
+  },
+  {
+    "dataset": "har",
+    "condition": "label_flip",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 69.4581546719314
+  },
+  {
+    "dataset": "har",
+    "condition": "label_flip",
+    "method": "Viceroy",
+    "completed": 5,
+    "seeds": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 17.43807261621988
+  },
+  {
+    "dataset": "har",
+    "condition": "label_flip",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 64.55794799025203
+  },
+  {
+    "dataset": "mnist",
+    "condition": "honest_drift",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 86.23787358757062
+  },
+  {
+    "dataset": "mnist",
+    "condition": "honest_drift",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 63.29002423600411
+  },
+  {
+    "dataset": "mnist",
+    "condition": "honest_drift",
+    "method": "Viceroy",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 30.884981221109403
+  },
+  {
+    "dataset": "mnist",
+    "condition": "honest_drift",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      1711201,
+      1711202,
+      1711203,
+      1711204,
+      1711205
+    ],
+    "mean_rounds_5_48_pct": 87.30373683872624
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "honest_drift",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 66.66502192475603
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "honest_drift",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 19.94558513097073
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "honest_drift",
+    "method": "Viceroy",
+    "completed": 4,
+    "seeds": [
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 38.70970391146636
+  },
+  {
+    "dataset": "fashion_mnist",
+    "condition": "honest_drift",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "mean_rounds_5_48_pct": 67.62275751155623
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "honest_drift",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 38.17740761077158
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "honest_drift",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 8.698492374464292
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "honest_drift",
+    "method": "Viceroy",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 4.732622183302721
+  },
+  {
+    "dataset": "emnist_balanced",
+    "condition": "honest_drift",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "mean_rounds_5_48_pct": 41.887506205335136
+  },
+  {
+    "dataset": "har",
+    "condition": "honest_drift",
+    "method": "RFA",
+    "completed": 5,
+    "seeds": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 67.84858593449593
+  },
+  {
+    "dataset": "har",
+    "condition": "honest_drift",
+    "method": "FLTrust",
+    "completed": 5,
+    "seeds": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 66.88358356384146
+  },
+  {
+    "dataset": "har",
+    "condition": "honest_drift",
+    "method": "Viceroy",
+    "completed": 4,
+    "seeds": [
+      921201,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 27.269396869151652
+  },
+  {
+    "dataset": "har",
+    "condition": "honest_drift",
+    "method": "FedReTrust-v06",
+    "completed": 5,
+    "seeds": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ],
+    "mean_rounds_5_48_pct": 68.18047019697646
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "recorded": 240,
+  "completed": 236,
+  "diverged": 4,
+  "confusions_recalculated": true,
+  "hashes_and_round_means_checked": true,
+  "original_accuracy_curves_match": true,
+  "source_manifests": {
+    "full": "a73ec31ddd673219dfa5391cde30bae3115e122b4227cda737662d9538bbf1ed",
+    "mnist_publication": "5afd23b367e1823cb4a73f08e7f4c8d5c407c7c039d028d39d4773a1c37ad06d",
+    "table2_metrics": "772eb9e470e4ba3cb94866c95bca96b0825cf3739cb1f5b2293840a40de96017",
+    "clean_metrics": "240a59935a13570d73d8c353beef5c11d669f23a3a2f0ca69f373f13970d29c2"
+  },
+  "failures": [
+    {
+      "dataset": "fashion_mnist",
+      "seed": 1111201,
+      "method": "Viceroy",
+      "condition": "clean",
+      "status": "diverged",
+      "failure_round": 7,
+      "accuracy_pct": null,
+      "macro_precision_pct": null,
+      "macro_recall_pct": null,
+      "source": "clean_metrics/runs/fashion_mnist/1111201/Viceroy/clean"
+    },
+    {
+      "dataset": "fashion_mnist",
+      "seed": 1111201,
+      "method": "Viceroy",
+      "condition": "label_flip",
+      "status": "diverged",
+      "failure_round": 11,
+      "accuracy_pct": null,
+      "macro_precision_pct": null,
+      "macro_recall_pct": null,
+      "source": "table2_metrics/runs/fashion_mnist/1111201/Viceroy/label_flip"
+    },
+    {
+      "dataset": "fashion_mnist",
+      "seed": 1111201,
+      "method": "Viceroy",
+      "condition": "honest_drift",
+      "status": "diverged",
+      "failure_round": 7,
+      "accuracy_pct": null,
+      "macro_precision_pct": null,
+      "macro_recall_pct": null,
+      "source": "table2_metrics/runs/fashion_mnist/1111201/Viceroy/honest_drift"
+    },
+    {
+      "dataset": "har",
+      "seed": 921202,
+      "method": "Viceroy",
+      "condition": "honest_drift",
+      "status": "diverged",
+      "failure_round": 9,
+      "accuracy_pct": null,
+      "macro_precision_pct": null,
+      "macro_recall_pct": null,
+      "source": "table2_metrics/runs/har/921202/Viceroy/honest_drift"
+    }
+  ]
+}

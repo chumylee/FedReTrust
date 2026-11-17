@@ -1,0 +1,65 @@
+[
+  {
+    "comparator": "RFA",
+    "condition": "clean",
+    "difference_pp": -0.3913636363636385,
+    "ci_low": -0.9988053195429776,
+    "ci_high": 0.21607804681570048
+  },
+  {
+    "comparator": "RFA",
+    "condition": "honest_drift",
+    "difference_pp": 1.0658632511556192,
+    "ci_low": 0.07804076159784579,
+    "ci_high": 2.0536857407133926
+  },
+  {
+    "comparator": "RFA",
+    "condition": "label_flip",
+    "difference_pp": -1.9763636363636352,
+    "ci_low": -2.768176158616114,
+    "ci_high": -1.1845511141111564
+  },
+  {
+    "comparator": "FLTrust",
+    "condition": "clean",
+    "difference_pp": 2.744090909090912,
+    "ci_low": 1.6880361040752319,
+    "ci_high": 3.8001457141065917
+  },
+  {
+    "comparator": "FLTrust",
+    "condition": "honest_drift",
+    "difference_pp": 24.013712602722137,
+    "ci_low": 12.761586059614586,
+    "ci_high": 35.26583914582969
+  },
+  {
+    "comparator": "FLTrust",
+    "condition": "label_flip",
+    "difference_pp": 0.1390909090909105,
+    "ci_low": -1.0750102019485037,
+    "ci_high": 1.3531920201303247
+  },
+  {
+    "comparator": "Viceroy",
+    "condition": "clean",
+    "difference_pp": 47.15409090909091,
+    "ci_low": 26.286745771190215,
+    "ci_high": 68.02143604699161
+  },
+  {
+    "comparator": "Viceroy",
+    "condition": "honest_drift",
+    "difference_pp": 56.418755617616846,
+    "ci_low": 44.932872561335216,
+    "ci_high": 67.90463867389848
+  },
+  {
+    "comparator": "Viceroy",
+    "condition": "label_flip",
+    "difference_pp": 61.79090909090909,
+    "ci_low": 47.15356258628145,
+    "ci_high": 76.42825559553673
+  }
+]

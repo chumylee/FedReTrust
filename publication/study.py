@@ -84,7 +84,7 @@ def to_device(data, device):
     data["permutation"] = data["permutation"].to(device)
 
 
-def run_job(data, method, condition, rounds, device):
+def run_job(data, method, condition, rounds, device, *, evaluate_round=None):
     start = monotonic()
     seed = data["plan"]["seed"]
     torch.manual_seed(seed)
@@ -98,98 +98,122 @@ def run_job(data, method, condition, rounds, device):
                  "implementation_sha256": file_sha256(CODE / "fltrust.py")})
     rows = []
     test, shifted_test, test_y = data["test"]
-    for round_id in range(rounds + 1):
-        fraction = min(1.0, max(0.0, (round_id - ONSET + 1) / RAMP))
-        if round_id:
-            broadcast = clone_state(model)
-            submissions = []
-            for client, (clean, shifted, labels, drift_order) in data["clients"].items():
-                x, y = clean, labels
-                if round_id >= ONSET and client in data["affected"]:
-                    if condition == "honest_drift":
-                        positions = drift_order[:math.floor(fraction * len(labels))]
-                        x = clean.clone()
-                        x[positions] = shifted[positions]
-                    elif condition == "label_flip":
-                        y = data["permutation"][labels]
-                shuffle = (seed * 1_000_003 + round_id * 1009 + client) % (2**63 - 1)
-                generator = torch.Generator().manual_seed(shuffle)
-                # DataLoader draws a base seed and RandomSampler then draws the permutation.
-                torch.empty((), dtype=torch.int64).random_(generator=generator)
-                batches = torch.randperm(len(y), generator=generator).to(device).split(64)
-                state = train(local, broadcast, x, y, data["lr"], batches)
-                submissions.append(ClientSubmission(client, len(y), state))
-            if aggregator is None:
-                root_x, root_y = data["root"]
-                rng = torch.Generator().manual_seed(seed_for(seed, "fltrust_root_batches", round_id))
-                root_batches = [torch.randperm(len(root_y), generator=rng)[:root_options.root_batch_size].to(device)
-                                for _ in range(root_options.root_steps)]
-                root_state = train(local, broadcast, root_x, root_y, root_options.root_learning_rate,
-                                   root_batches)
-                result = fltrust_rule(submissions, broadcast, flatten_delta(root_state, broadcast),
-                                      root_options.global_learning_rate, root_options.epsilon)
+    failure = None
+    try:
+        for round_id in range(rounds + 1):
+            fraction = min(1.0, max(0.0, (round_id - ONSET + 1) / RAMP))
+            if round_id:
+                broadcast = clone_state(model)
+                submissions = []
+                for client, (clean, shifted, labels, drift_order) in data["clients"].items():
+                    x, y = clean, labels
+                    if round_id >= ONSET and client in data["affected"]:
+                        if condition == "honest_drift":
+                            positions = drift_order[:math.floor(fraction * len(labels))]
+                            x = clean.clone()
+                            x[positions] = shifted[positions]
+                        elif condition == "label_flip":
+                            y = data["permutation"][labels]
+                    shuffle = (seed * 1_000_003 + round_id * 1009 + client) % (2**63 - 1)
+                    generator = torch.Generator().manual_seed(shuffle)
+                    # DataLoader draws a base seed and RandomSampler then draws the permutation.
+                    torch.empty((), dtype=torch.int64).random_(generator=generator)
+                    batches = torch.randperm(len(y), generator=generator).to(device).split(64)
+                    state = train(local, broadcast, x, y, data["lr"], batches)
+                    submissions.append(ClientSubmission(client, len(y), state))
+                if aggregator is None:
+                    root_x, root_y = data["root"]
+                    rng = torch.Generator().manual_seed(seed_for(seed, "fltrust_root_batches", round_id))
+                    root_batches = [torch.randperm(len(root_y), generator=rng)[:root_options.root_batch_size].to(device)
+                                    for _ in range(root_options.root_steps)]
+                    root_state = train(local, broadcast, root_x, root_y, root_options.root_learning_rate,
+                                       root_batches)
+                    result = fltrust_rule(submissions, broadcast, flatten_delta(root_state, broadcast),
+                                          root_options.global_learning_rate, root_options.epsilon)
+                else:
+                    result = aggregator.aggregate(submissions, broadcast, round_id)
+                if any(not torch.isfinite(value).all() for value in result.state.values()):
+                    raise FloatingPointError(f"Non-finite {method} model at round {round_id}")
+                model.load_state_dict(result.state)
+            if evaluate_round is None:
+                accuracy, clean_classes = evaluate(model, test, test_y, data["classes"])
+                drift = None
+                if condition == "honest_drift":
+                    _, shifted_classes = evaluate(model, shifted_test, test_y, data["classes"])
+                    drift = float(data["weights"] @ ((1 - fraction) * clean_classes + fraction * shifted_classes))
+                row = {"round": round_id, "accuracy_pct": 100 * accuracy,
+                       "drift_pct": 100 * drift if drift is not None else None}
             else:
-                result = aggregator.aggregate(submissions, broadcast, round_id)
-            if any(not torch.isfinite(value).all() for value in result.state.values()):
-                raise FloatingPointError(f"Non-finite {method} model at round {round_id}")
-            model.load_state_dict(result.state)
-        accuracy, clean_classes = evaluate(model, test, test_y, data["classes"])
-        drift = None
-        if condition == "honest_drift":
-            _, shifted_classes = evaluate(model, shifted_test, test_y, data["classes"])
-            drift = float(data["weights"] @ ((1 - fraction) * clean_classes + fraction * shifted_classes))
-        rows.append({"round": round_id, "accuracy_pct": 100 * accuracy,
-                     "drift_pct": 100 * drift if drift is not None else None})
-        if round_id and (round_id % 8 == 0 or round_id == rounds):
-            print(f"    Round {round_id}/{rounds}: {100 * accuracy:.2f}% clean-input accuracy", flush=True)
+                row = evaluate_round(model, round_id, fraction)
+            rows.append(row)
+            if round_id and (round_id % 8 == 0 or round_id == rounds):
+                print(f"    Round {round_id}/{rounds}: {row['accuracy_pct']:.2f}% clean-input accuracy", flush=True)
+    except FloatingPointError as error:
+        failure = {"round": round_id, "message": str(error)}
     metric = "drift_pct" if condition == "honest_drift" else "accuracy_pct"
     return rows, {
         "initial_model_sha256": initial_hash,
         "settings": settings, "seconds": monotonic() - start,
-        "mean_pct": mean(row[metric] for row in rows[ONSET:]),
-        "round24_pct": rows[24][metric] if rounds >= 24 else None,
-        "final_pct": rows[-1][metric],
+        "status": "diverged" if failure else "completed",
+        "failure": failure,
+        "mean_pct": mean(row[metric] for row in rows[ONSET:]) if failure is None else None,
+        "round24_pct": rows[24][metric] if len(rows) > 24 else None,
+        "final_pct": rows[-1][metric] if failure is None else None,
     }
 
 
 def summarize(output, records, seeds):
-    by_seed = []
+    by_seed, failures = [], []
     for dataset, dataset_seeds in seeds.items():
         for seed in dataset_seeds:
             for method in METHODS:
                 jobs = {name: records[dataset, seed, method, name] for name in CONDITIONS}
                 row = {"dataset": dataset, "seed": seed, "method": method}
                 for condition, label in zip(CONDITIONS, ("C", "H", "P")):
+                    job = jobs[condition]
+                    row[f"{label}_status"] = job.get("status", "completed")
+                    if job.get("failure") is not None:
+                        failures.append({"dataset": dataset, "seed": seed, "method": method,
+                                         "condition": condition, **job["failure"]})
                     for key in ("mean_pct", "round24_pct", "final_pct"):
-                        row[f"{label}_{key}"] = jobs[condition][key]
-                row["poisoning_damage_pp"] = row["C_mean_pct"] - row["P_mean_pct"]
+                        row[f"{label}_{key}"] = job[key]
+                clean, poison = row["C_mean_pct"], row["P_mean_pct"]
+                row["poisoning_damage_pp"] = clean - poison if clean is not None and poison is not None else None
                 by_seed.append(row)
 
     summary, pairs = [], []
     for dataset, dataset_seeds in seeds.items():
+        proposed = {row["seed"]: row for row in by_seed
+                    if (row["dataset"], row["method"]) == (dataset, "FedReTrust-v06")}
         for method in METHODS:
             group = [row for row in by_seed if (row["dataset"], row["method"]) == (dataset, method)]
-            summary.append({
-                "dataset": dataset, "method": method, "repeats": len(group),
-                **{key: mean(row[key] for row in group) if group[0][key] is not None else None
-                   for key in group[0] if key not in ("dataset", "seed", "method")},
-            })
+            row_summary = {"dataset": dataset, "method": method, "repeats": len(group)}
+            for label in ("C", "H", "P"):
+                row_summary[f"{label}_diverged"] = sum(row[f"{label}_status"] == "diverged" for row in group)
+            metrics = [key for key in group[0] if key.endswith(("_pct", "_pp"))]
+            for metric in metrics:
+                values = [row[metric] for row in group if row[metric] is not None]
+                row_summary[metric] = mean(values) if values else None
+                row_summary[f"{metric}_n"] = len(values)
+            summary.append(row_summary)
             if method == "FedReTrust-v06":
                 continue
             for metric in ("C_mean_pct", "P_mean_pct", "H_mean_pct", "poisoning_damage_pp"):
-                v06 = {row["seed"]: row[metric] for row in by_seed
-                       if (row["dataset"], row["method"]) == (dataset, "FedReTrust-v06")}
-                differences = [v06[row["seed"]] - row[metric] for row in group]
-                centre = mean(differences)
-                half = (2.7764451052 * stdev(differences) / math.sqrt(5)
-                        if len(differences) == 5 else None)
+                differences = [proposed[row["seed"]][metric] - row[metric] for row in group
+                               if proposed[row["seed"]][metric] is not None and row[metric] is not None]
+                count = len(differences)
+                centre = mean(differences) if count else None
+                half = 2.7764451052 * stdev(differences) / math.sqrt(count) if count == 5 else None
                 pairs.append({"dataset": dataset, "comparator": method, "metric": metric,
-                              "repeats": len(dataset_seeds), "v06_minus_comparator_pp": centre,
+                              "repeats": count, "planned_repeats": len(dataset_seeds),
+                              "v06_minus_comparator_pp": centre,
                               "nominal_95_ci_low_pp": centre - half if half is not None else None,
                               "nominal_95_ci_high_pp": centre + half if half is not None else None})
     write_csv(output / "results_by_seed.csv", by_seed)
     write_csv(output / "results_table.csv", summary)
     write_csv(output / "paired_differences.csv", pairs)
+    write_json(output / "diverged_jobs.json", failures)
+    return len(failures)
 
 
 def package_results(output, destination):
@@ -225,15 +249,31 @@ def run_study(args, parser, output):
         "gpu": torch.cuda.get_device_name(0) if backend == "cuda" else None,
         "torch": str(torch.__version__), "numpy": np.__version__, "cuda": torch.version.cuda,
         "code_sha256": {path.name: file_sha256(path) for path in (
-            *sorted(HERE.glob("*.py")), *(CODE / name for name in (
+            *(HERE / name for name in ("data.py", "run.py", "study.py")),
+            *(CODE / name for name in (
                 "experiment_core.py", "rfa.py", "fltrust.py", "viceroy.py",
                 "fedretrust_v06.py", "fedretrust_v05.py", "fedretrust_directional.py",
                 "fedretrust_reference_free.py", "non_iid_partitions.py", "scenario_utils.py")))},
     }
     manifest = json.loads(json.dumps(manifest))
     manifest_path = output / "manifest.json"
-    if manifest_path.exists() and json.loads(manifest_path.read_text()) != manifest:
-        parser.error(f"Settings differ from an existing run. Move {output} aside to start a fresh run.")
+    if manifest_path.exists():
+        previous = json.loads(manifest_path.read_text())
+        if previous != manifest:
+            # The original runner uses the same protocol but aborts on divergence.
+            # Keep evidence of its code hash for jobs it already completed.
+            compatible = json.loads(json.dumps(manifest))
+            previous_study = previous.get("code_sha256", {}).get("study.py")
+            compatible["code_sha256"]["study.py"] = previous_study
+            compatible_studies = {
+                "b0d5c0b79e98eea42e9ae37c7b3cb6df40585e614037f403a5338d2bca8bb823",
+                "b9985cb707388891741230b94a77248a3254be3b7b1af3cc6c194ae831e9ffb9",
+            }
+            if previous != compatible or previous_study not in compatible_studies:
+                parser.error(f"Settings differ from an existing run. Move {output} aside to start a fresh run.")
+            original_manifest = output / "manifest.original.json"
+            if not original_manifest.exists():
+                write_json(original_manifest, previous)
     write_json(manifest_path, manifest)
 
     print(f"Training on {backend}. {total} jobs, {rounds} rounds per job. Results: {output}", flush=True)
@@ -260,20 +300,29 @@ def run_study(args, parser, output):
                         record = json.loads(done.read_text())
                         if file_sha256(measurements) != record["measurements_sha256"]:
                             raise ValueError(f"Saved round measurements changed: {measurements}")
-                        print(f"{name} — already complete", flush=True)
+                        print(f"{name} — already recorded ({record.get('status', 'completed')})",
+                              flush=True)
                     else:
                         print(name, flush=True)
                         rows, record = run_job(data, method, condition, rounds, device)
+                        if not rows:
+                            raise RuntimeError(f"No round measurements were produced for {name}.")
                         write_csv(measurements, rows)
                         record["measurements_sha256"] = file_sha256(measurements)
                         write_json(done, record)
+                        if record["failure"] is not None:
+                            failure = record["failure"]
+                            print(f"    Diverged at round {failure['round']}: {failure['message']} "
+                                  "Recorded partial results and continuing.", flush=True)
                     if initial_hash is not None and record["initial_model_sha256"] != initial_hash:
                         raise ValueError(f"Initial models differ in {dataset}, seed {seed}")
                     initial_hash = record["initial_model_sha256"]
                     records[key] = record
-    summarize(output, records, seeds)
-    write_json(output / "completed.json", {"jobs": len(records), "rounds": rounds})
-    print(f"Complete. Open {output / 'results_table.csv'}", flush=True)
+    failures = summarize(output, records, seeds)
+    write_json(output / "completed.json", {"jobs": len(records), "rounds": rounds,
+                                          "diverged_jobs": failures})
+    print(f"Complete. {failures} of {len(records)} jobs diverged. "
+          f"Open {output / 'results_table.csv'}", flush=True)
     if not args.smoke:
         destination = HERE / "FedReTrust-results.zip"
         package_results(output, destination)

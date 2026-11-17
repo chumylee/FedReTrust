@@ -1,0 +1,19 @@
+{
+  "jobs": 120,
+  "rounds": 48,
+  "device": "mps",
+  "source_manifest_sha256": "a73ec31ddd673219dfa5391cde30bae3115e122b4227cda737662d9538bbf1ed",
+  "runner_sha256": "12221c61f2578bfba3abf8c3f9cee3eff61215e0a22bc2cca772e11aecc4d5b6",
+  "study_sha256": "776e3e8f67bc04ddda2b395222689cb2e6daf01b781095e3b90d1d0e13aad074",
+  "metrics": [
+    "accuracy",
+    "macro_precision",
+    "macro_recall"
+  ],
+  "report_rounds": [
+    5,
+    48
+  ],
+  "macro_zero_division": 0,
+  "drift": "Mix class-conditional confusions by round and weight rows by the saved affected-client class profile."
+}

@@ -1,0 +1,68 @@
+{
+  "rounds": 48,
+  "report_rounds": [
+    5,
+    48
+  ],
+  "local_epochs": 1,
+  "batch_size": 64,
+  "momentum": 0.9,
+  "drift_ramp_rounds": 8,
+  "methods": [
+    "FedAvg",
+    "RFA",
+    "FLTrust",
+    "Viceroy",
+    "FedReTrust-v06"
+  ],
+  "conditions": [
+    "clean",
+    "honest_drift",
+    "label_flip"
+  ],
+  "seeds": {
+    "fashion_mnist": [
+      1111201,
+      1111202,
+      1111203,
+      1111204,
+      1111205
+    ],
+    "emnist_balanced": [
+      1211201,
+      1211202,
+      1211203,
+      1211204,
+      1211205
+    ],
+    "har": [
+      921201,
+      921202,
+      921203,
+      921204,
+      921205
+    ]
+  },
+  "jobs": 225,
+  "device": "mps",
+  "machine": "arm64",
+  "gpu": null,
+  "torch": "2.13.0",
+  "numpy": "2.5.2",
+  "cuda": null,
+  "code_sha256": {
+    "data.py": "182079b202d0a67b8d74d88f3508e5bd800f1c2d369a33d740745e00363b247d",
+    "run.py": "0d21fddc2842a71f0d08c951b819d5dfb856d4e0752980e06737bc69939caa31",
+    "study.py": "b9985cb707388891741230b94a77248a3254be3b7b1af3cc6c194ae831e9ffb9",
+    "experiment_core.py": "b4e22bdc48001091cb15b2176e430946bad5d17be57c8c3843948122051b9007",
+    "rfa.py": "1b4da80b87fb619aabd01f0df18f05cc3295a4bf496bac45a9e082622e3c31a2",
+    "fltrust.py": "6188d3aaa272ab8acc56082eae3ceabb90036a02bd6abf5221d73b8597ef805b",
+    "viceroy.py": "6dc8762629c7a0ebc3541a3486e381d71b8467248c5aba849b11eed148fff383",
+    "fedretrust_v06.py": "55524516f251258728ad9d6d588ece3145b98d6c650dcdebf4e72ac212944f89",
+    "fedretrust_v05.py": "6f614fcbe8a708b234ca5c6d7601f15bc25061c176bd7bae96718e1892c6a639",
+    "fedretrust_directional.py": "148795098df039fdab382c69cca00abae9d5135b2afcbd75f5470ffcfd6adea3",
+    "fedretrust_reference_free.py": "48a505f6f7b268949fe46a965c712ca12582f4e56fcff77cd01b674d187868ad",
+    "non_iid_partitions.py": "65063379ced1c09477b639909706b3bba6422f94d3a3d91f835ac453879281e8",
+    "scenario_utils.py": "17d137a42b2f066482c67465719b64ebf24cf7046eff75ad293c2f790ebdb2db"
+  }
+}

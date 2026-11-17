@@ -244,7 +244,7 @@
     "Experiment/resources/viceroy_reference/requirements.txt": "00ee1666aa1bf5a41323d46584f45053684de931a5f58dad050fb15504f17dfd",
     "Experiment/resources/viceroy_reference/source_manifest.json": "50d339c1f383d345b3e4fcf200a4baa1ca7e479c9807872842d22a68ba051d93",
     "Experiment/scenario_metric_protocol.json": "c8dc228748bd7a2b2c2405dd4f74992d28f1215f46f495b99d67994ff30cd469",
-    "README.md": "da08874c7ca4891c0a0477845bd2c7655468059b27260eae07cbfd2486e8d932",
+    "README.md": "bc6974f9eaf06e13e54b91e56413fb882fe146a0d0e3f150d361a6770c48c308",
     "THIRD_PARTY_NOTICES.md": "c4ad62dfc4b6b05f4704ecae8c9df0206148604c176b3d2591aeb3e67529f91b",
     "docs/ARCHITECTURE.md": "1320d3907f25af1df96feca9ee91c4e11f08bf56c33b448d581aa1104825cdd3",
     "docs/DATA_AND_SETUP.md": "3cb531ac3a5078236ed35bc8b998c34a14ce6210c79d0ff5bc6a6bb8b7c76a9f",
@@ -268,5 +268,11 @@
     "tools/prepare_reference_papers.py": "7666426fe898cf5eecfa62449e9c8b927500cc14113e16da5c2bc8df74830409",
     "tools/reproduce_results.py": "764b453c54a79b5a5b8536fa14dc808760c06bd62c092d2a0e721f7ae96267d0",
     "tools/verify_submission.py": "52cf568d84acd99775949380e8e3cbc955d164763795fc9b8004e3862cd0aa69"
+  },
+  "documentation_update": {
+    "date": "2026-11-17",
+    "file": "README.md",
+    "previous_manifest_sha256": "da08874c7ca4891c0a0477845bd2c7655468059b27260eae07cbfd2486e8d932",
+    "reason": "Update repository landing page for the publication artifact; frozen scientific source hashes are unchanged."
   }
 }

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "jobs_checked": 60,
+  "completed": 59,
+  "diverged": [
+    {
+      "dataset": "fashion_mnist",
+      "seed": 1111201,
+      "method": "Viceroy",
+      "failure": {
+        "round": 7,
+        "message": "Non-finite submitted model."
+      }
+    }
+  ],
+  "original_accuracy_curves_match": true,
+  "initial_models_and_settings_match": true,
+  "metric_confusion_recalculation_passed": true,
+  "rounds_5_to_48_averages_passed": true,
+  "source_and_output_hash_checks_passed": true,
+  "summary_groups_checked": 12
+}
